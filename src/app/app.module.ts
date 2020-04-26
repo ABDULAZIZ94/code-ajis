@@ -25,10 +25,8 @@ import { NbIconModule } from '@nebular/theme';
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule,
     SocialLoginModule,
     TutorialModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     NbListModule,
     NbUserModule,

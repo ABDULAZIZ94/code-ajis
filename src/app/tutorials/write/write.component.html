@@ -1,3 +1,5 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
 <table>
     <tr>
         <td>
@@ -11,11 +13,19 @@
     </tr>
     <tr>
         <td>
+            
+        </td>
+        <td>
+            <span class="warn_note" *ngIf="!titleFC.valid && titleFC.dirty">* Start With Capital latter</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <label for="tutor_tag">Tag: </label>
         </td>
         <td>
             <input 
-            type="number" id="tutor_tag" fieldSize="small" nbInput 
+            type="text" id="tutor_tag" fieldSize="small" nbInput 
             status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.tagM"
             [formControl]="this.tagFC">
         </td>
@@ -25,9 +35,11 @@
             <label for="tutorial">Tutorial: </label>
         </td>
         <td>
-            <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="small" status="primary"
+            <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="large" status="primary"
                 [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
         </td>
     </tr>
     <button nbButton (click)="printConsole()">log</button>
 </table>
+</nb-card-body>
+</nb-card>

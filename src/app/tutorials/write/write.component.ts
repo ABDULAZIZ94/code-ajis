@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-write',
@@ -12,7 +12,10 @@ export class WriteComponent implements OnInit {
   public tagM:String = "";
   public tutorialM:String = "";
 
-  public titleFC = new FormControl("");
+  public titleFC = new FormControl("",Validators.compose([
+    Validators.required,
+    Validators.pattern("^[A-Z]{1}.*")
+  ]));
   public tagFC = new FormControl("");
   public tutorialFC = new FormControl("");
 
