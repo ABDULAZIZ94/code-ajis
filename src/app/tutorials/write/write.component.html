@@ -1,1 +1,33 @@
-<p>write works!</p>
+<table>
+    <tr>
+        <td>
+            <label for="tutor_title">Title: </label>
+        </td>
+        <td>
+            <input 
+            type="text" id="tutor_title" fieldSize="small" nbInput status="primary" 
+            placeholder="eg: How To Code" [(ngModel)]="this.titleM" [formControl]="this.titleFC">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="tutor_tag">Tag: </label>
+        </td>
+        <td>
+            <input 
+            type="number" id="tutor_tag" fieldSize="small" nbInput 
+            status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.tagM"
+            [formControl]="this.tagFC">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="tutorial">Tutorial: </label>
+        </td>
+        <td>
+            <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="small" status="primary"
+                [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
+        </td>
+    </tr>
+    <button nbButton (click)="printConsole()">log</button>
+</table>
