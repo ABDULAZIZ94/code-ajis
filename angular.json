@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "code-ajis"
+    }
+  },
+  "defaultProject": "code-ajis",
+  "cli": {
+    "analytics": "c2a6a192-f086-4f4f-b247-8ae0a67c9c9e"
+  }
 }
