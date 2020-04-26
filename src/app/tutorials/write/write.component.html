@@ -1,45 +1,57 @@
 <nb-card>
+    <nb-card-header>
+        <h4>Fill This Form</h4>
+    </nb-card-header>
     <nb-card-body class="example-items-col">
-<table>
-    <tr>
-        <td>
-            <label for="tutor_title">Title: </label>
-        </td>
-        <td>
-            <input 
-            type="text" id="tutor_title" fieldSize="small" nbInput status="primary" 
-            placeholder="eg: How To Code" [(ngModel)]="this.titleM" [formControl]="this.titleFC">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            
-        </td>
-        <td>
-            <span class="warn_note" *ngIf="!titleFC.valid && titleFC.dirty">* Start With Capital latter</span>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="tutor_tag">Tag: </label>
-        </td>
-        <td>
-            <input 
-            type="text" id="tutor_tag" fieldSize="small" nbInput 
-            status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.tagM"
-            [formControl]="this.tagFC">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="tutorial">Tutorial: </label>
-        </td>
-        <td>
-            <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="large" status="primary"
-                [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
-        </td>
-    </tr>
-    <button nbButton (click)="printConsole()">log</button>
-</table>
-</nb-card-body>
+        <table>
+            <tr>
+                <td>
+                    <label for="tutor_title">Title * : </label>
+                </td>
+                <td>
+                    <input 
+                    type="text" id="tutor_title" fieldSize="small" nbInput status="primary" 
+                    placeholder="eg: How To Code" [(ngModel)]="this.titleM" [formControl]="this.titleFC">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <span class="warn_note" *ngIf="!titleFC.valid && titleFC.dirty">* Start With Capital latter</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tutor_tag">Tag: </label>
+                </td>
+                <td>
+                    <input 
+                    type="text" id="tutor_tag" fieldSize="small" nbInput 
+                    status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.tagM"
+                    [formControl]="this.tagFC">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <span class="warn_note" *ngIf="!tagFC.valid && titleFC.dirty"> * Start With capital Letter</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tutorial">Tutorial * : </label>
+                </td>
+                <td>
+                    <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="large" status="primary"
+                        [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
+                </td>
+            </tr>
+            <button nbButton (click)="submitTutor()">log</button>
+        </table>
+        </nb-card-body>
+    <nb-card-footer>
+        <span class="center">* requires</span>
+    </nb-card-footer>
 </nb-card>
