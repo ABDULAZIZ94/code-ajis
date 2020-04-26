@@ -4,7 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## install fontaawosome 0.6.1
 
-    ng add @fortawesome/angular-fontawesome@0.6.1
+    sudo ng add @fortawesome/angular-fontawesome@0.6.1
+
+## install angular/fire and firebase
+
+    sudo ng add @angular/fire
+
+    sudo npm install --save firebase
 
 ## create social-login component and module
 component
@@ -28,3 +34,5 @@ module
 ## Development server
 
     sudo ng serve --host 0.0.0.0 --port 80
+
+## Add nebular theme

@@ -3,20 +3,47 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SocialLoginComponent } from './social-login/social-login/social-login.component';
-import { TutorialComponent } from './tutorials/tutorial/tutorial.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SocialLoginModule } from './social-login/social-login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TutorialModule } from './tutorials/tutorial.module';
+import {
+  NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
+  NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
+  NbActionsModule, NbMenuModule, NbUserModule
+} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbIconModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SocialLoginComponent,
-    TutorialComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
+    SocialLoginModule,
+    TutorialModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NbListModule,
+    NbUserModule,
+    NbLayoutModule,
+    NbEvaIconsModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbIconModule,
+    NbCardModule,
+    NbInputModule,
+    NbStepperModule,
+    NbMenuModule.forRoot(),
+    NbSidebarModule.forRoot(),
+    NbThemeModule.forRoot({ name: 'default' }),
     AppRoutingModule,
-    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+input, textarea, button{
+    margin: 5px 10px;
+}
+nb-card-footer{
+    text-align: center;
+}
+tr,td,th{
+    text-align: center;
+}
+nb-stepper,nb-step {
+    text-align: center;
+}
+nb-actions{
+    margin: auto;
+}
+tr{
+    margin:0 auto;
+} 
+tr > a {
+    margin: 10px;
+    text-decoration: none;
+}

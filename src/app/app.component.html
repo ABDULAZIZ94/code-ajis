@@ -1,0 +1,23 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <tr>
+        <a routerLink="home">Home</a>
+        <a routerLink="write">Write</a>
+        <a routerLink="tutorial">Tutorial</a>
+    </tr>
+    <nb-user *ngIf="false" size="medium" name="John Doe" title="Engineer" [onlyPicture]="true">
+    </nb-user>
+    <button nbButton appearance="ghost" *ngIf="true">login</button>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <!-- Insert footer here -->
+    Open Source abdulazizabdulnoor@gmail.com
+  </nb-layout-footer>
+
+</nb-layout>

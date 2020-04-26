@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "code-ajis",
+      "public": "dist/code-ajis",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

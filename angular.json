@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -117,6 +118,10 @@
               "devServerTarget": "code-ajis:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
