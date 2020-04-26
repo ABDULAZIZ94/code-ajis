@@ -1,4 +1,4 @@
-<!-- <nb-layout>
+<nb-layout>
 
   <nb-layout-header fixed>
     <tr>
@@ -8,6 +8,7 @@
     </tr>
     <nb-user *ngIf="false" size="medium" name="John Doe" title="Engineer" [onlyPicture]="true">
     </nb-user>
+    <button nbButton (click)="logout()" appearance="ghost" *ngIf="true">logout</button>
     <button nbButton (click)="login()" appearance="ghost" *ngIf="true">login</button>
   </nb-layout-header>
 
@@ -20,7 +21,5 @@
     Open Source abdulazizabdulnoor@gmail.com
   </nb-layout-footer>
 
-</nb-layout> -->
+</nb-layout>
 
-
-  <router-outlet></router-outlet>

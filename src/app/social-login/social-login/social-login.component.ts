@@ -23,10 +23,10 @@ export class SocialLoginComponent implements OnInit {
 
   }
   githubLogin(){
-    this.authService.githubLogin();
+    this.authService.githubLogin().then(() => this.authService.navigate());
   }
   googleLogin() {
-    this.authService.googleLogin();
+    this.authService.googleLogin().then(() => this.authService.navigate());
   }
   logout() {
     this.authService.logout();

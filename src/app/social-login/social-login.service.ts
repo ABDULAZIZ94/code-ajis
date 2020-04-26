@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class SocialLoginService {
+export class SocialLoginService{
 
   public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   public firebase: any;
@@ -33,21 +33,20 @@ export class SocialLoginService {
   async logout() {
     console.log('logout');
     this.auth.signOut()
-      // .then(() => this.navigate());
       .then((success) => this.router.navigate(['social-login']));
   }
 
   async navigate() {
-    // console.log('navigate()');
-    // this.auth.authState.subscribe(user => {
-    //   if (user) {
-    //     console.log('user is: ' + user);
-    //     async () => this.router.navigate(['write']);
-    //   } else {
-    //     console.log('user is: ' + user);
-    //     async () => this.router.navigate(['login']);
-    //   }
-    // });
+    console.log('navigate()');
+    this.auth.authState.subscribe(user => {
+      if (user) {
+        console.log('user is: ' + JSON.stringify(user));
+        // async () => this.router.navigate(['write']);
+      } else {
+        console.log('user is: ' + JSON.stringify(user));
+        // async () => this.router.navigate(['login']);
+      }
+    });
   }
 
 }
