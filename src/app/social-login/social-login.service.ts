@@ -3,7 +3,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'; import("firebase/auth");
 import { Router } from '@angular/router';
-
+import { AngularFirestore } from '@angular/fire/firestore'
+import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SocialLoginService{
   public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   public firebase: any;
 
-  constructor(public auth: AngularFireAuth, public router: Router) {
+  constructor( public auth: AngularFireAuth, public router: Router, public af: AngularFirestore) {
     this.firebase = firebase;
   }
 
@@ -37,16 +38,27 @@ export class SocialLoginService{
   }
 
   async navigate() {
-    console.log('navigate()');
+    // console.log('navigate()');
     this.auth.authState.subscribe(user => {
       if (user) {
-        console.log('user is: ' + JSON.stringify(user));
+        // console.log('user is: ' + JSON.stringify(user));
         // async () => this.router.navigate(['write']);
       } else {
-        console.log('user is: ' + JSON.stringify(user));
+        // console.log('user is: ' + JSON.stringify(user));
         // async () => this.router.navigate(['login']);
       }
     });
   }
 
+  pushToDB(data) {
+    return new Promise<any>((resolve, reject) => {
+      this.af.collection('tutorials').doc('1')
+        .set(data)
+        .then(res => { }, err => rejects(err));
+    });
+  }
+
+  getDatas(){
+    return this.af.collection("tutorials").snapshotChanges();
+  }
 }

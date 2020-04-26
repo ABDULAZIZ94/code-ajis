@@ -48,10 +48,17 @@
                         [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
                 </td>
             </tr>
-            <button nbButton (click)="submitTutor()">log</button>
+            <button nbButton (click)="submitTutor()">log</button><br>
+            <button nbButton (click)="save()">save</button>
         </table>
         </nb-card-body>
     <nb-card-footer>
         <span class="center">* requires</span>
     </nb-card-footer>
+</nb-card>
+<nb-card *ngFor="let data of datas">
+    <nb-card-body>
+        {{data.payload.doc.id}}
+        {{data.payload.doc.data().title}}
+    </nb-card-body>
 </nb-card>

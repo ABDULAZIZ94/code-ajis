@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { CloudDataService } from 'src/app/social-login/cloud-data.service';
+import { SocialLoginService } from 'src/app/social-login/social-login.service';
 
 @Component({
   selector: 'app-write',
@@ -7,6 +9,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./write.component.css']
 })
 export class WriteComponent implements OnInit {
+
+  public datas;
 
   public titleM:String = "";
   public tagM:String = "";
@@ -23,9 +27,12 @@ export class WriteComponent implements OnInit {
     Validators.required
   ]));
 
-  constructor() { }
+  constructor(public socialLogin: SocialLoginService ) { }
 
   ngOnInit(): void {
+    this.socialLogin.getDatas().subscribe(
+      res => {this.datas = res, console.log(res)}
+    );
   }
 
   submitTutor(){
@@ -39,5 +46,19 @@ export class WriteComponent implements OnInit {
     console.log("title: "+this.titleM.toString());
     console.log("tag: " + this.tagM.toString());
     console.log("tutorial: " + this.tutorialM.toString());
+  }
+
+  save(){
+    let data = {
+      title: this.titleM,
+      tag: this.tagM,
+      tutorial: this.tutorialM
+    };
+    
+    this.socialLogin.pushToDB(data).then(
+      res => {
+        console.log('write.save(): '+res);
+      }
+    );
   }
 }
