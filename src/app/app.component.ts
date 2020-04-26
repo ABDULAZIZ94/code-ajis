@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NbSidebarService } from '@nebular/theme';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'code-ajis';
+
+  constructor(public router: Router){}
+
+  login(){
+    this.router.navigate(['social-login']);
+  }
 }

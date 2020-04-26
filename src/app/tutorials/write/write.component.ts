@@ -12,14 +12,14 @@ export class WriteComponent implements OnInit {
   public tagM:String = "";
   public tutorialM:String = "";
 
-  public titleFC = new FormControl(1,Validators.compose([
+  public titleFC = new FormControl("",Validators.compose([
     Validators.required,
     Validators.pattern("^[A-Z]{1}.*")
   ]));
-  public tagFC = new FormControl(2, Validators.compose([
+  public tagFC = new FormControl("", Validators.compose([
     Validators.pattern("^[A-Z]{1}.*")
   ]));
-  public tutorialFC = new FormControl(3, Validators.compose([
+  public tutorialFC = new FormControl("", Validators.compose([
     Validators.required
   ]));
 

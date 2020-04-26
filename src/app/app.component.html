@@ -8,7 +8,7 @@
     </tr>
     <nb-user *ngIf="false" size="medium" name="John Doe" title="Engineer" [onlyPicture]="true">
     </nb-user>
-    <button nbButton appearance="ghost" *ngIf="true">login</button>
+    <button nbButton (click)="login()" appearance="ghost" *ngIf="true">login</button>
   </nb-layout-header>
 
   <nb-layout-column>
