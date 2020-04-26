@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AppComponent } from './app.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { SocialLoginModule } from './social-login/social-login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -17,6 +17,12 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
 
+//angularfire
+import { AngularFirestoreModule, SETTINGS as FIRESTORE_SETTINGS } from '@angular/fire/firestore';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,22 +31,27 @@ import { NbIconModule } from '@nebular/theme';
   imports: [
     BrowserModule,
     CommonModule,
+    BrowserAnimationsModule,
     SocialLoginModule,
     TutorialModule,
-    BrowserAnimationsModule,
-    NbListModule,
-    NbUserModule,
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbButtonModule,
-    NbActionsModule,
-    NbIconModule,
-    NbCardModule,
-    NbInputModule,
-    NbStepperModule,
-    NbMenuModule.forRoot(),
-    NbSidebarModule.forRoot(),
-    NbThemeModule.forRoot({ name: 'default' }),
+  
+    // NbListModule,
+    // NbUserModule,
+    // NbLayoutModule,
+    // NbEvaIconsModule,
+    // NbButtonModule,
+    // NbActionsModule,
+    // NbIconModule,
+    // NbCardModule,
+    // NbInputModule,
+    // NbStepperModule,
+    // NbMenuModule.forRoot(),
+    // NbSidebarModule.forRoot(),
+    // NbThemeModule.forRoot({ name: 'default' }),
+
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthGuardModule,
     AppRoutingModule,
   ],
   providers: [],
