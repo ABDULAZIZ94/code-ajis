@@ -26,6 +26,8 @@ import { SocialLoginService } from './services/social-login.service';
 import { CloudDataService } from './services/cloud-data.service';
 import { HomeDataService } from './services/home-data.service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -13,6 +13,11 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
 import { TutorialComponent } from './tutorial/tutorial.component';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
+//fontawosome module
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     HomeComponent,
     TutorialComponent],
   imports: [
+    FontAwesomeModule,
     CommonModule,
     NbListModule,
     NbUserModule,
@@ -39,4 +45,8 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     ReactiveFormsModule,
   ]
 })
-export class TutorialModule { }
+export class TutorialModule { 
+  constructor(library: FaIconLibrary){
+    library.addIconPacks(fas, far);
+  }
+}
