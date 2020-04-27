@@ -43,13 +43,17 @@
                 <td>
                     <label for="tutorial">Tutorial * : </label>
                 </td>
-                <td>
-                    <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="large" status="primary"
+                <td rowspan="1">
+                    <textarea id="tutorial" nbInput placeholder="Show The Steps" fieldSize="large" 
+                        status="primary" fullWidth="true"
                         [(ngModel)]="this.tutorialM" [formControl]="this.tutorialFC"></textarea>
                 </td>
             </tr>
-            <button nbButton (click)="submitTutor()">log</button><br>
-            <button nbButton (click)="save()">save</button>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <button nbButton *ngIf="false" (click)="submitTutor()">log</button><br>
+            <button nbButton *ngIf="true" status="info" (click)="save()">save</button>
         </table>
         </nb-card-body>
     <nb-card-footer>
