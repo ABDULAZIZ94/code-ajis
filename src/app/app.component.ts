@@ -34,6 +34,14 @@ export class AppComponent implements OnInit{
         filter(({ tag }) => tag === 'avatar-context-menu'),
         map(({ item: { title } }) => title),
       )
-      .subscribe(title => this.window.alert(`${title} was clicked!`));
-  }
+      .subscribe(title =>{
+        switch(title) {
+          case this.contextMenu[0].title:
+            this.login();
+          case this.contextMenu[1].title:
+            this.logout();
+          default:break; 
+        }
+      });
+  } 
 }
