@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+//tutorial show tutorial and list of available tutorial
+//child route of tutorial is the specific tutorial
 @Component({
   selector: 'app-tutorial',
   templateUrl: './tutorial.component.html',

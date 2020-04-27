@@ -72,3 +72,5 @@ show branch
     ng build --prod
 
     public dir = dist/aziz-code
+
+## project too large to continue documenting

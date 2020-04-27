@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Inject, Component, OnInit } from '@angular/cor
 import { NbSidebarService, NB_WINDOW, NbMenuService } from '@nebular/theme';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SocialLoginService } from './social-login/social-login.service';
+import { SocialLoginService } from './services/social-login.service';
 import { filter, map } from 'rxjs/operators'
 
 @Component({
@@ -14,7 +14,8 @@ import { filter, map } from 'rxjs/operators'
 export class AppComponent implements OnInit{
   title = 'code-ajis';
   contextMenu =[{title:"login"},{title:"logout"}];
-  menus = ['HTML','CSS',"JS","PHP","Yii2","Laravel","CakePhp","Angular","VueJs","AngularJs"];
+  // menus = ['HTML','CSS',"JS","PHP","Yii2","Laravel","CakePhp","Angular","VueJs","AngularJs"];
+  menus = ['HTML', 'CSS', "JS"];
   constructor(public router: Router, public loginService:SocialLoginService,
     private sidebarService: NbSidebarService, private nbMenuService: NbMenuService,
     @Inject(NB_WINDOW) private window){}

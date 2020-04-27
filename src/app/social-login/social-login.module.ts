@@ -15,10 +15,12 @@ import {
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    SocialLoginComponent
+    SocialLoginComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

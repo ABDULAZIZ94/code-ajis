@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { CloudDataService } from 'src/app/social-login/cloud-data.service';
-import { SocialLoginService } from 'src/app/social-login/social-login.service';
+import { CloudDataService } from 'src/app/services/cloud-data.service';
+import { SocialLoginService } from 'src/app/services/social-login.service';
 
 @Component({
   selector: 'app-write',

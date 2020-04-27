@@ -22,6 +22,9 @@ import { AngularFirestoreModule, SETTINGS as FIRESTORE_SETTINGS } from '@angular
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { SocialLoginService } from './services/social-login.service';
+import { CloudDataService } from './services/cloud-data.service';
+import { HomeDataService } from './services/home-data.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,11 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthGuardModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    SocialLoginService,
+    CloudDataService,
+    HomeDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <nb-icon icon="menu-outline" status="warning" (click)="toggle()"></nb-icon>
+    <!-- <nb-icon icon="menu-outline" status="warning" (click)="toggle()"></nb-icon> -->
     <tr>
-      <a routerLink="home">Home</a>
-      <a routerLink="write">Write</a>
-      <a routerLink="tutorial">Tutorial</a>
+      <a routerLink="home" routerLinkActive="active-link">Home</a>
+      <a routerLink="write" routerLinkActive="active-link">Write</a>
+      <a routerLink="tutorial" routerLinkActive="active-link">Tutorial</a>
     </tr>
     <nb-user *ngIf="true" size="large" name="Aziz" title="SE" [nbContextMenu]="contextMenu"
      [onlyPicture]="true" nbContextMenuTrigger="hover" nbContextMenuTag="avatar-context-menu">
@@ -20,10 +20,10 @@
   <nb-layout-footer fixed>
     Open Source abdulazizabdulnoor@gmail.com
   </nb-layout-footer>
-  <nb-sidebar class="sidebar">
+  <!-- <nb-sidebar class="sidebar">
     <nb-list-item *ngFor="let menu of menus">
       {{ menu }}
     </nb-list-item>
-  </nb-sidebar>
+  </nb-sidebar> -->
 </nb-layout>
 

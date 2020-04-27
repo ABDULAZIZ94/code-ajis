@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { faGoogle, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
-import { SocialLoginService } from '../social-login.service';
+import { SocialLoginService } from '../../services/social-login.service';
 import { Router } from '@angular/router';
 
 @Component({

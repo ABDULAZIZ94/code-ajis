@@ -30,4 +30,16 @@ tr{
 tr > a {
     margin: 10px;
     text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 18pt;
+}
+tr > a:hover {
+    margin: 10px;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 18pt;
+    color: turquoise;
+}
+.active-link{
+    color: blue !important;
 }
