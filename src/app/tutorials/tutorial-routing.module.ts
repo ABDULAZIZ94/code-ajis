@@ -11,11 +11,17 @@ import {
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['social-login']);
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, 
-  canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin} },
-  { path:'tutorial', component:TutorialComponent },
-  { path:'write', component: WriteComponent }
+  { 
+    path: 'home', component: HomeComponent, 
+  },
+  {
+    path: 'tutorial', component: TutorialComponent
+  },
+  { 
+    path: 'write', component: WriteComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin } 
+  }
 ];
 
 @NgModule({

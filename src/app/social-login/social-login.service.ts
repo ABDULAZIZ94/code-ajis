@@ -74,4 +74,8 @@ export class SocialLoginService{
       .doc(data.payload.doc.id)
       .delete();
   }
+
+  updateTutorial(){
+    //coming soon
+  }
 }

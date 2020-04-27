@@ -66,3 +66,9 @@ show branch
     git branch -r
 
     git show-branch
+
+## build for production
+
+    ng build --prod
+
+    public dir = dist/aziz-code
