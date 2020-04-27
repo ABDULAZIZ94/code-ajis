@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {HomeDataService} from '../../services/home-data.service';
+import { HomeDataService } from '../../services/home-data.service';
 import { faPython, faPhp, faHtml5, faWordpress,faAngular, faVuejs,faLaravel } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { NbMenuItem } from '@nebular/theme';
 
 
 //home tutorial show preview of this website
@@ -20,6 +21,30 @@ export class HomeComponent implements OnInit {
   faLaravel;
   faHtml5;
   faCode;
+
+  items: NbMenuItem[] = [
+    {
+      title: 'Profile',
+      expanded: true,
+      children: [
+        {
+          title: 'Change Password',
+        },
+        {
+          title: 'Privacy Policy',
+        },
+        {
+          title: 'Logout',
+        },
+      ],
+    },
+    {
+      title: 'Shopping Bag',
+    },
+    {
+      title: 'Orders',
+    },
+  ];
 
   constructor(public hds: HomeDataService) { 
     this.faPython = faPython;
