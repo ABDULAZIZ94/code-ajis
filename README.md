@@ -36,3 +36,33 @@ module
     sudo ng serve --host 0.0.0.0 --port 80
 
 ## Add nebular theme
+
+    sudo add
+
+## git tag and branch
+    
+add new tag
+
+    git tag -a <v-x.x.x> -m "tag msg'
+
+    git push origin v-x-x
+
+add branch
+
+    git branch <branch-name>
+
+git switch branch
+
+    git checkout <branch-name>
+
+delete branch 
+
+    git branch -d <branch-name>
+
+show branch
+    
+    git branch -a
+
+    git branch -r
+
+    git show-branch

@@ -52,14 +52,26 @@ export class SocialLoginService{
 
   //need array or way to  index doc with number
   pushToDB(data) {
+    // return new Promise<any>((resolve, reject) => {
+    //   this.af.collection('tutorials').doc(data.title)
+    //     .set(data)
+    //     .then(res => { }, err => rejects(err));
+    // });
     return new Promise<any>((resolve, reject) => {
-      this.af.collection('tutorials').doc(data.title)
-        .set(data)
+      this.af.collection('tutorials')
+        .add(data)
         .then(res => { }, err => rejects(err));
     });
   }
 
   getDatas(){
     return this.af.collection("tutorials").snapshotChanges();
+  }
+
+  deleteData(data){
+    return this.af
+      .collection("tutorials")
+      .doc(data.payload.doc.id)
+      .delete();
   }
 }

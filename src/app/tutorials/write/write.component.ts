@@ -61,4 +61,7 @@ export class WriteComponent implements OnInit {
       }
     );
   }
+
+  deleteData = data => this.socialLogin.deleteData(data);
+  
 }
