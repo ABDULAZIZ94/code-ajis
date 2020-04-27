@@ -50,9 +50,10 @@ export class SocialLoginService{
     });
   }
 
+  //need array or way to  index doc with number
   pushToDB(data) {
     return new Promise<any>((resolve, reject) => {
-      this.af.collection('tutorials').doc('1')
+      this.af.collection('tutorials').doc(data.title)
         .set(data)
         .then(res => { }, err => rejects(err));
     });
