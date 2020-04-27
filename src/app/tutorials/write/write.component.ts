@@ -30,6 +30,7 @@ export class WriteComponent implements OnInit {
   constructor(public socialLogin: SocialLoginService ) { }
 
   ngOnInit(): void {
+    //tutorial data from has problem 
     this.socialLogin.getDatas().subscribe(
       res => {this.datas = res, console.log(res)}
     );

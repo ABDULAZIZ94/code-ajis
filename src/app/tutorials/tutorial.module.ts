@@ -8,13 +8,17 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
   NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
-  NbActionsModule, NbMenuModule, NbUserModule
+  NbActionsModule, NbMenuModule, NbUserModule, NbBadgeModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 @NgModule({
-  declarations: [WriteComponent, HomeComponent],
+  declarations: [
+    WriteComponent, 
+    HomeComponent,
+    TutorialComponent],
   imports: [
     CommonModule,
     NbListModule,
@@ -26,6 +30,7 @@ import { NbIconModule } from '@nebular/theme';
     NbIconModule,
     NbCardModule,
     NbInputModule,
+    NbBadgeModule,
     NbStepperModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),

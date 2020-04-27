@@ -14,7 +14,7 @@ import { filter, map } from 'rxjs/operators'
 export class AppComponent implements OnInit{
   title = 'code-ajis';
   contextMenu =[{title:"login"},{title:"logout"}];
-  menus = ['HTML','CSS',"JS","PHP"];
+  menus = ['HTML','CSS',"JS","PHP","Yii2","Laravel","CakePhp","Angular","VueJs","AngularJs"];
   constructor(public router: Router, public loginService:SocialLoginService,
     private sidebarService: NbSidebarService, private nbMenuService: NbMenuService,
     @Inject(NB_WINDOW) private window){}
