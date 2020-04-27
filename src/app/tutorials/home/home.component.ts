@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeDataService } from '../../services/home-data.service';
+import { HomeService } from '../../services/home.service';
 import { faPython, faPhp, faHtml5, faWordpress,faAngular, faVuejs,faLaravel } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { NbMenuItem } from '@nebular/theme';
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(public hds: HomeDataService) { 
+  constructor(public hds: HomeService) { 
     this.faPython = faPython;
     this.faPhp = faPhp;
     this.faWordpress = faWordpress;

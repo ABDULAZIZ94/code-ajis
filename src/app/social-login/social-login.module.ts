@@ -13,6 +13,11 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
 import { ProfileComponent } from './profile/profile.component';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { SocialLoginService } from '../services/social-login.service';
 
 @NgModule({
   declarations: [
@@ -22,22 +27,30 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    SocialLoginRoutingModule,
     
-
-    NbListModule,
-    NbUserModule,
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbButtonModule,
-    NbActionsModule,
-    NbIconModule,
+    // NbListModule,
+    // NbUserModule,
+    // NbLayoutModule,
+    // NbEvaIconsModule,
+    // NbButtonModule,
+    // NbActionsModule,
+    // NbIconModule,
     NbCardModule,
-    NbInputModule,
-    NbStepperModule,
-    NbMenuModule.forRoot(),
-    NbSidebarModule.forRoot(),
-    NbThemeModule.forRoot({ name: 'default' }),
+    // NbInputModule,
+    // NbStepperModule,
+    // NbMenuModule.forRoot(),
+    // NbSidebarModule.forRoot(),
+    // NbThemeModule.forRoot({ name: 'default' }),
+
+    // AngularFireAuthGuardModule,
+    // AngularFirestoreModule,
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    
+    SocialLoginRoutingModule,
+
+  ],
+  providers:[
+    SocialLoginService
   ]
 })
 export class SocialLoginModule { }

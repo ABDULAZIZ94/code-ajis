@@ -11,6 +11,9 @@ import {
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['social-login']);
 
 const routes: Routes = [
+  {
+    path: '', component: HomeComponent,
+  },
   { 
     path: 'home', component: HomeComponent, 
   },

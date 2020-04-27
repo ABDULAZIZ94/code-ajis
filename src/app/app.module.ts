@@ -24,7 +24,9 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { SocialLoginService } from './services/social-login.service';
 import { CloudDataService } from './services/cloud-data.service';
-import { HomeDataService } from './services/home-data.service';
+import { HomeService } from './services/home.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DummyModule } from './dummy/dummy.module';
 
 
 
@@ -37,8 +39,11 @@ import { HomeDataService } from './services/home-data.service';
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
-    SocialLoginModule,
-    TutorialModule,
+    // SocialLoginModule,
+    // TutorialModule,
+    // DummyModule,
+
+    FontAwesomeModule,
   
     NbContextMenuModule,
     NbListModule,
@@ -58,12 +63,13 @@ import { HomeDataService } from './services/home-data.service';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthGuardModule,
+
     AppRoutingModule,
   ],
   providers: [
     SocialLoginService,
     CloudDataService,
-    HomeDataService
+    HomeService
   ],
   bootstrap: [AppComponent]
 })
