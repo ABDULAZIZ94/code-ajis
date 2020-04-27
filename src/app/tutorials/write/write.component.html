@@ -58,9 +58,9 @@
 </nb-card>
 <nb-card *ngFor="let data of datas">
     <nb-card-body>
-        {{data.payload.doc.id}}
-        {{data.payload.doc.data().title}}
-        {{data.payload.doc.data().tutorial}}
-        <button nbButton (click)="deleteData(data)">X</button>
+        <p>{{data.payload.doc.id}}</p>
+        <h4>{{data.payload.doc.data().title}}</h4>
+        <p>{{data.payload.doc.data().tutorial}}</p><br>
+        <button nbButton appearance="filled" status="primary" (click)="deleteData(data)">delete</button>
     </nb-card-body>
 </nb-card>

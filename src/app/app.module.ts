@@ -12,7 +12,7 @@ import { TutorialModule } from './tutorials/tutorial.module';
 import {
   NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
   NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
-  NbActionsModule, NbMenuModule, NbUserModule
+  NbActionsModule, NbMenuModule, NbUserModule, NbContextMenuModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
@@ -35,6 +35,7 @@ import { environment } from 'src/environments/environment';
     SocialLoginModule,
     TutorialModule,
   
+    NbContextMenuModule,
     NbListModule,
     NbUserModule,
     NbLayoutModule,

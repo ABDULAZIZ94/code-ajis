@@ -13,6 +13,17 @@ nb-stepper,nb-step {
 nb-actions{
     margin: auto;
 }
+.sidebar{
+    max-width: 200px;
+    /* background-color: rgb(114, 123, 250); */
+    margin: 0px;
+    padding: 0px;
+}
+
+nb-list-item{
+    max-width: 160px;
+    /* background-color: rosybrown; */
+}
 tr{
     margin:0 auto;
 } 

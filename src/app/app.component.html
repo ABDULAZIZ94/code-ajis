@@ -1,25 +1,29 @@
 <nb-layout>
 
   <nb-layout-header fixed>
+    <nb-icon icon="menu-outline" status="warning" (click)="toggle()"></nb-icon>
     <tr>
-        <a routerLink="home">Home</a>
-        <a routerLink="write">Write</a>
-        <a routerLink="tutorial">Tutorial</a>
+      <a routerLink="home">Home</a>
+      <a routerLink="write">Write</a>
+      <a routerLink="tutorial">Tutorial</a>
     </tr>
-    <nb-user *ngIf="false" size="medium" name="John Doe" title="Engineer" [onlyPicture]="true">
+    <nb-user *ngIf="true" size="medium" name="Aziz" title="SE" [nbContextMenu]="contextMenu"
+     [onlyPicture]="true" nbContextMenuTrigger="hover" nbContextMenuTag="avatar-context-menu">
     </nb-user>
-    <button nbButton (click)="logout()" appearance="ghost" *ngIf="true">logout</button>
-    <button nbButton (click)="login()" appearance="ghost" *ngIf="true">login</button>
-  </nb-layout-header>
+    <button nbButton (click)="logout()" appearance="ghost" *ngIf="false">logout</button>
+    <button nbButton  (click)="login()" appearance="ghost" *ngIf="false">login</button>
 
-  <nb-layout-column>
+  </nb-layout-header>
+  <nb-layout-column >
     <router-outlet></router-outlet>
   </nb-layout-column>
-
   <nb-layout-footer fixed>
-
     Open Source abdulazizabdulnoor@gmail.com
   </nb-layout-footer>
-
+  <nb-sidebar class="sidebar">
+    <nb-list-item *ngFor="let menu of menus">
+      {{ menu }}
+    </nb-list-item>
+  </nb-sidebar>
 </nb-layout>
 
