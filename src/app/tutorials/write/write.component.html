@@ -52,19 +52,11 @@
             <tr></tr>
             <tr></tr>
             <tr></tr>
-            <button nbButton *ngIf="false" (click)="submitTutor()">log</button><br>
+            <!-- <button nbButton *ngIf="false" (click)="submitTutor()">log</button><br> -->
             <button nbButton *ngIf="true" status="info" (click)="save()">save</button>
         </table>
         </nb-card-body>
     <nb-card-footer>
         <span class="center">* requires</span>
     </nb-card-footer>
-</nb-card>
-<nb-card *ngFor="let data of datas">
-    <nb-card-body>
-        <p>{{data.payload.doc.id}}</p>
-        <h4>{{data.payload.doc.data().title}}</h4>
-        <p>{{data.payload.doc.data().tutorial}}</p><br>
-        <button nbButton appearance="filled" status="primary" (click)="deleteData(data)">delete</button>
-    </nb-card-body>
 </nb-card>
