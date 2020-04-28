@@ -12,8 +12,8 @@
     width: auto;
 }
 .pRef{
-    background-color: blueviolet;
-    font-size: 34pt !important;
+    /* background-color: blueviolet; */
+    font-size: 44pt !important;
     font-family: monospace !important;
     /* 'Roboto Mono' */
 }

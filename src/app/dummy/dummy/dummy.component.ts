@@ -23,6 +23,7 @@ export class DummyComponent implements AfterViewInit {
 
   onNameChange(change) {
     // this.Display = change;
+    console.log("change is: "+change);
     this.pRef.nativeElement.innerHTML = change;
     this.pRef.nativeElement.setAttribute('class', 'pRef');
   }
