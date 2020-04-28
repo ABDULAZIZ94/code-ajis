@@ -1,24 +1,29 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-dummy',
   templateUrl: './dummy.component.html',
   styleUrls: ['./dummy.component.css']
 })
-export class DummyComponent implements OnInit {
+export class DummyComponent implements AfterViewInit {
 
-  @ViewChild('displayDiv') viewDiv:ElementRef;
-  @Input() Name: Text; //how to use @Input decorator
+  @ViewChild('pRef', { static: false }) pRef: ElementRef; //selector name must same with var name
+  // @Input() Name: Text; //how to use @Input decorator
+
+  public Display: String ;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    // console.log(this.pRef.nativeElement.innerHTML);
+    // this.pRef.nativeElement.innerHTML = "DOM updated succesfully!!!";
   }
 
   process(){};
 
   onNameChange(change) {
-    this.viewDiv.nativeElement.innerHtml = change;
-    console.log(change);
+    // this.Display = change;
+    this.pRef.nativeElement.innerHTML = change;
+    this.pRef.nativeElement.setAttribute('class', 'pRef');
   }
 }

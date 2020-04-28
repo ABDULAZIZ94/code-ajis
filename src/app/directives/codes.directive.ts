@@ -1,10 +1,12 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 import { element } from 'protractor';
 
 @Directive({
   selector: '[appCodes]'
 })
 export class CodesDirective {
+
+  @Input() text:String;
 
   constructor(public er: ElementRef) {
     console.log();

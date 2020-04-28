@@ -4,9 +4,16 @@
     border: 1px solid gray;
     font: medium -moz-fixed;
     font: -webkit-small-control;
+    /* font-size: 34pt !important; */
     height: auto;
     overflow: auto;
     padding: 2px;
     resize: both;
     width: auto;
+}
+.pRef{
+    background-color: blueviolet;
+    font-size: 34pt !important;
+    font-family: monospace !important;
+    /* 'Roboto Mono' */
 }
