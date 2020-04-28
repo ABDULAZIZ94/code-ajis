@@ -3,7 +3,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { CloudDataService } from 'src/app/services/cloud-data.service';
 import { SocialLoginService } from 'src/app/services/social-login.service';
 
-//need of custom directive to handle write page
+//write using contenteditable
+//set to display using custom directive
 
 @Component({
   selector: 'app-write',

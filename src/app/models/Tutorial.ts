@@ -1,8 +1,10 @@
-export class Tutorials{
+import { Steps } from './Steps';
+
+export class Tutorial{
     //core information
     public tag: String = "";
     public title: String = "";
-    public tutorials: String="";
+    public steps: Steps[] = [];
     public author: String = "";
     public source_code: String = "";
     //date time
@@ -16,5 +18,5 @@ export class Tutorials{
     public reports: String[] = [];
 
     constructor(){};
-
+    
 }

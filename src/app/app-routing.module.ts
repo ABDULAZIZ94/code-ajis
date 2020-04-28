@@ -11,7 +11,7 @@ import { SocialLoginService } from './services/social-login.service';
 const routes: Routes = [
   { path:'', loadChildren: () => import('./tutorials/tutorial.module').then(m => m.TutorialModule) },
   { path:'social-login', loadChildren: () => import('./social-login/social-login.module').then(n => n.SocialLoginModule) },
-  // { path: 'dummy', loadChildren: () => import('./dummy/dummy.module').then(m => m.DummyModule) },
+  { path: 'dummy', loadChildren: () => import('./dummy/dummy.module').then(m => m.DummyModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 

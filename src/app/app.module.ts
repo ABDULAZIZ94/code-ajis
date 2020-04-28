@@ -27,6 +27,7 @@ import { CloudDataService } from './services/cloud-data.service';
 import { HomeService } from './services/home.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DummyModule } from './dummy/dummy.module';
+import { CodesDirective } from './directives/codes.directive';
 
 
 

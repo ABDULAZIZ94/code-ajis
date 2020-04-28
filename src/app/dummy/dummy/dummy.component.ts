@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-dummy',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DummyComponent implements OnInit {
 
+  @ViewChild('displayDiv') viewDiv:ElementRef;
+  @Input() Name: Text; //how to use @Input decorator
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  process(){};
+
+  onNameChange(change) {
+    this.viewDiv.nativeElement.innerHtml = change;
+    console.log(change);
+  }
 }
