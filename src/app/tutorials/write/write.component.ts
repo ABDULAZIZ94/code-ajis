@@ -6,6 +6,7 @@ import { StepType, Step } from 'src/app/models/Step';
 import { SocialLoginService } from 'src/app/services/social-login.service';
 import { NbDialogService } from '@nebular/theme';
 import { HomeComponent } from '../home/home.component';
+import { ComfirmComponent } from 'src/app/dialogs/comfirm/comfirm.component';
 
 @Component({
   selector: 'app-write',
@@ -34,16 +35,17 @@ export class WriteComponent implements OnInit {
   //   Validators.required
   // ]));
   constructor(public ws: WriteService, private dialogService: NbDialogService ) { }
-  ngOnInit(): void {}
+  ngOnInit(): void { 
+    // this.dataPushed() 
+  }
   public getDatas = async() =>{
     // this.socialLogin.getDatas().subscribe(
     //   res => { this.datas = res, console.log(res) }
     // );
   }
 
-  @HostListener('dataPushedToDB',['$event'])
   dataPushed(){
-    this.dialogService.open(HomeComponent, { context: 'pass data in template' });
+    this.dialogService.open(ComfirmComponent);
   }
 
 

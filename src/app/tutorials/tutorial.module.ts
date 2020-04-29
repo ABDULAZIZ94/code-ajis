@@ -8,11 +8,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
   NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
-  NbActionsModule, NbMenuModule, NbUserModule, NbBadgeModule
+  NbActionsModule, NbMenuModule, NbUserModule, NbBadgeModule, NbDialogModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
 import { TutorialComponent } from './tutorial/tutorial.component';
+import { ComfirmComponent } from '../dialogs/comfirm/comfirm.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 //fontawosome module
@@ -28,6 +29,7 @@ import { SocialLoginService } from '../services/social-login.service';
     SafehtmlPipe,
     WriteComponent, 
     HomeComponent,
+    ComfirmComponent,
     TutorialComponent,
   ],
   imports: [
@@ -44,6 +46,7 @@ import { SocialLoginService } from '../services/social-login.service';
     NbInputModule,
     NbBadgeModule,
     NbStepperModule,
+    NbDialogModule.forRoot(),
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
