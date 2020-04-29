@@ -2,7 +2,7 @@
     <nb-card-header>
         <h4>Fill This Form</h4>
     </nb-card-header>
-    <nb-card-body class="example-items-col">
+    <nb-card-body >
         <table>
             <tr>
                 <td>
@@ -11,7 +11,7 @@
                 <td>
                     <input 
                     type="text" id="tutor_title" fieldSize="small" nbInput status="primary" 
-                    placeholder="eg: How To Code" [(ngModel)]="this.titleM" [formControl]="this.titleFC">
+                    placeholder="eg: How To Code" [(ngModel)]="this.data.title" [formControl]="this.titleFC">
                 </td>
             </tr>
             <tr>
@@ -31,19 +31,38 @@
                 <td>
                     <input 
                     type="text" id="tutor_tag" fieldSize="large" nbInput 
-                    status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.tagM"
+                    status="primary" placeholder="eg: CSS HTML JS" [(ngModel)]="this.data.tag"
                     [formControl]="this.tagFC">
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <span class="warn_note" *ngIf="!tagFC.valid && titleFC.dirty"> * Start With capital Letter</span>
+                    <span class="warn_note" *ngIf="!tagFC.valid && titleFC.dirty">
+                         * Start With capital Letter
+                    </span>
                 </td>
             </tr>
+
+            <div *ngFor="let type of this.data.steps">
+                <h4 *ngIf="type == StepType.featureTitle">Chapter #1</h4>
+                <p *ngIf="type == StepType.featureTitle">Description</p>
+ 
+            </div>
             <tr>
-                 <h6 contenteditable (input)="onNameChange($event.target.innerHTML)">code here</h6>
-            <tr></tr>
+                <td></td>
+                <td><button nbButton (click)="pushStep(StepType.featureTitle)">new title</button></td>
+                <td><button nbButton (click)="pushStep(StepType.featureDescription)">new description</button></td>
+                <td><button nbButton (click)="pushStep(StepType.featureCode)">new code</button></td>
+                <td></td>
+            </tr>
+
+            <div>
+                <p *ngFor="let c of this.ws.copy" contenteditable (input)="onNameChange($event.target.innerHTML)">code here</p>
+                <h2 *ngFor="let c of this.copy">im copy</h2>
+                <button nbButton (click)="addCopy()" status="warning">Add</button>
+            </div>
+            
             <!-- <button nbButton *ngIf="false" (click)="submitTutor()">log</button><br> -->
             <button nbButton *ngIf="true" status="info" (click)="this.save()">save</button>
         </table>
@@ -53,7 +72,7 @@
     </nb-card-footer>
 </nb-card>
 
-<nb-card *ngFor="let data of datas">
+<nb-card *ngFor="let data of socialLogin.datas">
   <nb-card-body>
     <p>{{data.payload.doc.id}}</p>
     <h4>{{data.payload.doc.data().title}}</h4>

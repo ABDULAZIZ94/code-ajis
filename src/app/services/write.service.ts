@@ -7,7 +7,7 @@ import { SocialLoginService } from './social-login.service';
   providedIn: 'root'
 })
 export class WriteService {
-
+  public copy =[1,2,3];
   writeData: FormGroup;
   // this way less versetile
   // one form control invallid all will be invallid
@@ -41,7 +41,9 @@ export class WriteService {
 
     
   }
-
+  public duplicate = (x) => {
+    this.copy.push(x);
+  };
   public save() {
     let data = {
       title: this.titM,

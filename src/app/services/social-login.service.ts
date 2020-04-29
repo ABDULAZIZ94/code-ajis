@@ -10,7 +10,7 @@ import { rejects } from 'assert';
   providedIn: 'root'
 })
 export class SocialLoginService{
-
+  datas;
   public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   public firebase: any;
 
@@ -62,10 +62,14 @@ export class SocialLoginService{
         .add(data)
         .then(res => { }, err => rejects(err));
     });
+    
   }
 
   getDatas(){
-    return this.af.collection("tutorials").snapshotChanges();
+    return this.af.collection("tutorials").snapshotChanges().subscribe(
+      res => { this.datas = res, console.log(res) }
+    );
+    //need to suscribe here
   }
 
   deleteData(data){
