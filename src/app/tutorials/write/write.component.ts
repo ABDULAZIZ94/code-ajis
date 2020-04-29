@@ -4,6 +4,7 @@ import { WriteService } from 'src/app/services/write.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Tutorial } from 'src/app/models/Tutorial';
 import { StepType, Step } from 'src/app/models/Step';
+import { async } from '@angular/core/testing';
 
 //write using contenteditable
 //set to display using custom directive
@@ -51,18 +52,18 @@ export class WriteComponent implements OnInit {
     // this.socialLogin.getDatas().subscribe(
     //   res => { this.datas = res, console.log(res) }
     // );
-    this.socialLogin.getDatas();
+    async () => this.socialLogin.getDatas();
   }
 
   //this form not ui blocking
-  addCopy=() => {
+  addCopy = async() => {
     // this.copy.push(2);
     // this.ws.copy.push(2);
     this.ws.duplicate(4);
     // console.log(JSON.stringify(this.copy)); //loging is to 
   }
 
-  public async onNameChange(change) {
+  public  onNameChange = async (change) => {
     // let currentStep = new Step(StepType.featureCode);
     // currentStep.stepContent = change;
     // this.data.steps.push(currentStep) ;
@@ -92,7 +93,7 @@ export class WriteComponent implements OnInit {
   //   console.log("tutorial: " + this.tutorialM.toString());
   // }
 
-  save(){
+  save = async () => {
 
 
     // let data = {
@@ -108,6 +109,6 @@ export class WriteComponent implements OnInit {
     );
   }
 
-  deleteData = data => this.socialLogin.deleteData(data);
+  deleteData = async data => this.socialLogin.deleteData(data);
   
 }

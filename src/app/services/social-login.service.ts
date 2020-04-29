@@ -18,26 +18,26 @@ export class SocialLoginService{
     this.firebase = firebase;
   }
 
-  async googleLogin() {
+  googleLogin = async () => {
     console.log('googleLogin()');
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((success) => this.router.navigate(['write']));
     
   }
 
-  async githubLogin(){
+  githubLogin = () => {
     console.log('githubLogin()');
     this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
     .then((success) => this.router.navigate(['write']));
   }
 
-  async logout() {
+  logout = async () => {
     console.log('logout');
     this.auth.signOut()
       .then((success) => this.router.navigate(['social-login']));
   }
 
-  async navigate() {
+  navigate = async  () =>{
     // console.log('navigate()');
     this.auth.authState.subscribe(user => {
       if (user) {
@@ -51,7 +51,7 @@ export class SocialLoginService{
   }
 
   //need array or way to  index doc with number
-  pushToDB(data) {
+  pushToDB = async (data) => {
     // return new Promise<any>((resolve, reject) => {
     //   this.af.collection('tutorials').doc(data.title)
     //     .set(data)
@@ -65,21 +65,21 @@ export class SocialLoginService{
     
   }
 
-  getDatas(){
+  getDatas = async () => {
     return this.af.collection("tutorials").snapshotChanges().subscribe(
       res => { this.datas = res, console.log(res) }
     );
     //need to suscribe here
   }
 
-  deleteData(data){
+  deleteData = async (data) => {
     return this.af
       .collection("tutorials")
       .doc(data.payload.doc.id)
       .delete();
   }
 
-  updateTutorial(){
+  updateTutorial = async () => {
     //coming soon
   }
 }
