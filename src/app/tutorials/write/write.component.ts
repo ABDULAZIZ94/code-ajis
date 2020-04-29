@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { CloudDataService } from 'src/app/services/cloud-data.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SocialLoginService } from 'src/app/services/social-login.service';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 //write using contenteditable
 //set to display using custom directive
@@ -12,8 +11,10 @@ import { SocialLoginService } from 'src/app/services/social-login.service';
   styleUrls: ['./write.component.css']
 })
 export class WriteComponent implements OnInit {
+  @ViewChild('pRef', { static: false }) pRef: ElementRef;
 
   public datas;
+
 
   public titleM:String = "";
   public tagM:String = "";
@@ -26,31 +27,37 @@ export class WriteComponent implements OnInit {
   public tagFC = new FormControl("", Validators.compose([
     Validators.pattern("^[A-Z]{1}.*")
   ]));
-  public tutorialFC = new FormControl("", Validators.compose([
-    Validators.required
-  ]));
+  // public tutorialFC = new FormControl("", Validators.compose([
+  //   Validators.required
+  // ]));
 
-  constructor(public socialLogin: SocialLoginService ) { }
+  constructor(public socialLogin:SocialLoginService) { }
 
   ngOnInit(): void {
     //tutorial data from has problem 
     this.socialLogin.getDatas().subscribe(
-      res => {this.datas = res, console.log(res)}
+      res => { this.datas = res, console.log(res) }
     );
   }
 
-  submitTutor(){
-    if(this.titleFC.valid && this.tagFC.valid && this.tutorialFC.valid)
-      this.printConsole;
-    else
-      alert("Form Not Complete");    
+  public async onNameChange(change) {
+    this.tutorialM = change;
+    // this.pRef.nativeElement.innerHTML = change;
+    // this.pRef.nativeElement.setAttribute('class', 'pRef');
   }
 
-  printConsole(){
-    console.log("title: "+this.titleM.toString());
-    console.log("tag: " + this.tagM.toString());
-    console.log("tutorial: " + this.tutorialM.toString());
-  }
+  // submitTutor(){
+  //   if(this.titleFC.valid && this.tagFC.valid && this.tutorialFC.valid)
+  //     this.printConsole;
+  //   else
+  //     alert("Form Not Complete");    
+  // }
+
+  // printConsole(){
+  //   console.log("title: "+this.titleM.toString());
+  //   console.log("tag: " + this.tagM.toString());
+  //   console.log("tutorial: " + this.tutorialM.toString());
+  // }
 
   save(){
     let data = {

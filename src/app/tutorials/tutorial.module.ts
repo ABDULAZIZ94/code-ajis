@@ -18,12 +18,16 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 //fontawosome module
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { SafehtmlPipe } from '../pipes/safehtml.pipe';
+//pipes
 
 @NgModule({
   declarations: [
+    SafehtmlPipe,
     WriteComponent, 
     HomeComponent,
-    TutorialComponent],
+    TutorialComponent,
+  ],
   imports: [
     FontAwesomeModule,
     CommonModule,
@@ -43,6 +47,9 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     NbThemeModule.forRoot({ name: 'default' }),
     TutorialRoutingModule,
     ReactiveFormsModule,
+  ],
+  exports: [
+    SafehtmlPipe
   ]
 })
 export class TutorialModule { 

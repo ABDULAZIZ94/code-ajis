@@ -19,8 +19,6 @@ export class DummyComponent implements AfterViewInit {
     // this.pRef.nativeElement.innerHTML = "DOM updated succesfully!!!";
   }
 
-  process(){};
-
   onNameChange(change) {
     // this.Display = change;
     this.pRef.nativeElement.innerHTML = change;

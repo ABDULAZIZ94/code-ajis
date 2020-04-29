@@ -29,8 +29,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DummyModule } from './dummy/dummy.module';
 import { CodesDirective } from './directives/codes.directive';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -21,19 +21,19 @@ export class WriteService {
   // });
 
   //bind to individual ngModel
-  public titleM: String = "";
-  public tagM: String = "";
-  public tutorialM: String = "";
+  public titM: String = ""; //title data model
+  public tagM: String = ""; //tag data model
+  public tutM: String = ""; //tut data Model
 
   // instantiate individual form control
-  public titleFC = new FormControl("", Validators.compose([
+  public titFC = new FormControl("", Validators.compose([
     Validators.required,
     Validators.pattern("^[A-Z]{1}.*")
   ]));
   public tagFC = new FormControl("", Validators.compose([
     Validators.pattern("^[A-Z]{1}.*")
   ]));
-  public tutorialFC = new FormControl("", Validators.compose([
+  public tutFC = new FormControl("", Validators.compose([
     Validators.required
   ]));
 
@@ -44,9 +44,9 @@ export class WriteService {
 
   public save() {
     let data = {
-      title: this.titleM,
+      title: this.titM,
       tag: this.tagM,
-      tutorial: this.tutorialM
+      tutorial: this.tutM
     };
 
     this.socialLogin.pushToDB(data).then(
