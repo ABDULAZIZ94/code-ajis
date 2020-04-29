@@ -12,21 +12,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./social-login.component.scss']
 })
 export class SocialLoginComponent implements OnInit {
-
   faGithub = faGithub;
   faGoogle = faGoogle;
-
-
   constructor(public authService: SocialLoginService, public router: Router) { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
   githubLogin(){
-    this.authService.githubLogin().then(() => this.authService.navigate());
+    this.authService.githubLogin();
   }
   googleLogin() {
-    this.authService.googleLogin().then(() => this.authService.navigate());
+    this.authService.googleLogin();
   }
   logout() {
     this.authService.logout();

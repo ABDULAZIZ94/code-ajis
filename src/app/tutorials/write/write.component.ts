@@ -28,38 +28,34 @@ export class WriteComponent implements OnInit {
   // public tutorialM:String = "";
 
   //form validator maintained individually
-  public titleFC = new FormControl("",Validators.compose([
-    Validators.required,
-    Validators.pattern("^[A-Z]{1}.*")
-  ]));
-  public tagFC = new FormControl("", Validators.compose([
-    Validators.pattern("^[A-Z]{1}.*")
-  ]));
-  //steps
-
-  public tutorialFC = new FormControl("", Validators.compose([
-    Validators.required
-  ]));
+  // public titleFC = new FormControl("",Validators.compose([
+  //   Validators.required,
+  //   Validators.pattern("^[A-Z]{1}.*")
+  // ]));
+  // public tagFC = new FormControl("", Validators.compose([
+  //   Validators.pattern("^[A-Z]{1}.*")
+  // ]));
+  // //steps
+  // public tutorialFC = new FormControl("", Validators.compose([
+  //   Validators.required
+  // ]));
   
-
-  constructor(public socialLogin: SocialLoginService, public ws:WriteService) {
+  constructor( public ws:WriteService) {
     this.StepType = StepType;
-    
    }
-
   ngOnInit(): void {
     //tutorial data from has problem 
     // this.socialLogin.getDatas().subscribe(
     //   res => { this.datas = res, console.log(res) }
     // );
-    async () => this.socialLogin.getDatas();
+    this.ws.getdatas();
   }
-
+  
   //this form not ui blocking
   addCopy = async() => {
     // this.copy.push(2);
-    // this.ws.copy.push(2);
-    this.ws.duplicate(4);
+    this.ws.copy.push(2);
+    // this.ws.duplicate(4);
     // console.log(JSON.stringify(this.copy)); //loging is to 
   }
 
@@ -71,7 +67,7 @@ export class WriteComponent implements OnInit {
     // this.pRef.nativeElement.setAttribute('class', 'pRef');
   }
 
-  pushStep=(type:StepType)=>{
+  pushStep = async (type:StepType)=>{
     let s = new Step();
     switch(type){
       case StepType.featureTitle: s.setType(StepType.featureTitle);this.data.steps.push(s); break;
@@ -93,22 +89,20 @@ export class WriteComponent implements OnInit {
   //   console.log("tutorial: " + this.tutorialM.toString());
   // }
 
-  save = async () => {
+  // save = async () => {
 
 
-    // let data = {
-    //   title: this.titleM,
-    //   tag: this.tagM,
-    //   tutorial: this.tutorialM
-    // };
-    
-    this.socialLogin.pushToDB(this.data).then(
-      res => {
-        console.log('write.save(): '+res);
-      }
-    );
-  }
+  //   // let data = {
+  //   //   title: this.titleM,
+  //   //   tag: this.tagM,
+  //   //   tutorial: this.tutorialM
+  //   // };
 
-  deleteData = async data => this.socialLogin.deleteData(data);
+  //   this.socialLogin.pushToDB(this.data).then(
+  //     res => {
+  //       console.log('write.save(): ' + res);
+  //     }
+  //   );
+  // }
   
 }

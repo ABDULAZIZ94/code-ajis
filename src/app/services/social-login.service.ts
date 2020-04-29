@@ -1,84 +1,45 @@
 import { Injectable, OnInit } from '@angular/core';
-
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'; import("firebase/auth");
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 import { rejects } from 'assert';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SocialLoginService{
-  datas;
-  public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
+@Injectable({providedIn: 'root'})
+export class SocialLoginService {
   public firebase: any;
-
-  constructor( public auth: AngularFireAuth, public router: Router, public af: AngularFirestore) {
+  constructor( public auth: AngularFireAuth, public router: Router,
+    public socialLogin: SocialLoginService, public af: AngularFirestore) {
     this.firebase = firebase;
   }
-
   googleLogin = async () => {
-    console.log('googleLogin()');
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((success) => this.router.navigate(['write']));
-    
   }
-
-  githubLogin = () => {
-    console.log('githubLogin()');
+  githubLogin = async () => {
     this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
     .then((success) => this.router.navigate(['write']));
   }
-
   logout = async () => {
-    console.log('logout');
     this.auth.signOut()
       .then((success) => this.router.navigate(['social-login']));
   }
-
-  navigate = async  () =>{
-    // console.log('navigate()');
-    this.auth.authState.subscribe(user => {
-      if (user) {
-        // console.log('user is: ' + JSON.stringify(user));
-        // async () => this.router.navigate(['write']);
-      } else {
-        // console.log('user is: ' + JSON.stringify(user));
-        // async () => this.router.navigate(['login']);
-      }
-    });
-  }
-
-  //need array or way to  index doc with number
   pushToDB = async (data) => {
-    // return new Promise<any>((resolve, reject) => {
-    //   this.af.collection('tutorials').doc(data.title)
-    //     .set(data)
-    //     .then(res => { }, err => rejects(err));
-    // });
     return new Promise<any>((resolve, reject) => {
       this.af.collection('tutorials')
         .add(data)
         .then(res => { }, err => rejects(err));
     });
-    
   }
-
-  getDatas = async () => {
-    return this.af.collection("tutorials").snapshotChanges().subscribe(
-      res => { this.datas = res, console.log(res) }
-    );
-    //need to suscribe here
+  getDatas =  () => {
+    return this.af.collection("tutorials").snapshotChanges();
   }
-
   deleteData = async (data) => {
     return this.af
       .collection("tutorials")
       .doc(data.payload.doc.id)
       .delete();
   }
-
   updateTutorial = async () => {
     //coming soon
   }

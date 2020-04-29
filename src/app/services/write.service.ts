@@ -7,24 +7,12 @@ import { SocialLoginService } from './social-login.service';
   providedIn: 'root'
 })
 export class WriteService {
-  public copy =[1,2,3];
-  writeData: FormGroup;
-  // this way less versetile
-  // one form control invallid all will be invallid
-  // this.writeData = new FormGroup({
-  //   title: new FormControl("", Validators.compose([
-  //     Validators.pattern("^[AZaz]"),
-  //   ])),
-  //   tag: new FormControl("", Validators.compose([
-  //     Validators.pattern("^[AZaz]"),
-  //   ])),
-  // });
-
+  public datas;
+  public copy =[1,2,3];//testing
   //bind to individual ngModel
   public titM: String = ""; //title data model
   public tagM: String = ""; //tag data model
   public tutM: String = ""; //tut data Model
-
   // instantiate individual form control
   public titFC = new FormControl("", Validators.compose([
     Validators.required,
@@ -36,12 +24,14 @@ export class WriteService {
   public tutFC = new FormControl("", Validators.compose([
     Validators.required
   ]));
-
   constructor(public socialLogin: SocialLoginService) { 
-
-    
   }
-  public duplicate = (x) => {
+  getdatas =  () => this.socialLogin.getDatas().subscribe(
+    res => {
+      this.datas = res
+    }
+  );
+  public duplicate = async (x) => {
     this.copy.push(x);
   };
   public save() {
@@ -57,5 +47,5 @@ export class WriteService {
       }
     );
   }
-
+  deleteData = async data => this.socialLogin.deleteData(data);
 }
