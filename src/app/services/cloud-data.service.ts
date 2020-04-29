@@ -1,7 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit, Output } from '@angular/core';
 import * as firebase from 'firebase/app'; import("firebase/auth");
 import { AngularFirestore } from '@angular/fire/firestore'
 import { rejects } from 'assert';
+import { EventEmitter } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class CloudDataService implements OnInit{
   ngOnInit() { }
   pushToDB = async (data) => {
     return new Promise<any>((resolve, reject) => {
-      this.af.collection('tutorials').add(data).then(res => { }, err => rejects(err));
+      
+      this.af.collection('tutorials').add(data)
+      .then(res => { resolve(res)}, err => rejects(err));
     });
   }
   getDatas = () => {

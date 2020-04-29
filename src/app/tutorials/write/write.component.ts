@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { WriteService } from 'src/app/services/write.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Tutorial } from 'src/app/models/Tutorial';
 import { StepType, Step } from 'src/app/models/Step';
 import { SocialLoginService } from 'src/app/services/social-login.service';
+import { NbDialogService } from '@nebular/theme';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-write',
@@ -31,13 +33,20 @@ export class WriteComponent implements OnInit {
   // public tutorialFC = new FormControl("", Validators.compose([
   //   Validators.required
   // ]));
-  constructor( public ws:WriteService ) { }
+  constructor(public ws: WriteService, private dialogService: NbDialogService ) { }
   ngOnInit(): void {}
   public getDatas = async() =>{
     // this.socialLogin.getDatas().subscribe(
     //   res => { this.datas = res, console.log(res) }
     // );
   }
+
+  @HostListener('dataPushedToDB',['$event'])
+  dataPushed(){
+    this.dialogService.open(HomeComponent, { context: 'pass data in template' });
+  }
+
+
   public onCodeChange =  (change) => {
     // let currentStep = new Step(StepType.featureCode);
     // currentStep.stepContent = change;

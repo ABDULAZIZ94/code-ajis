@@ -11,7 +11,7 @@ import { TutorialModule } from './tutorials/tutorial.module';
 import {
   NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
   NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
-  NbActionsModule, NbMenuModule, NbUserModule, NbContextMenuModule
+  NbActionsModule, NbMenuModule, NbUserModule, NbContextMenuModule, NbDialogModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
@@ -44,6 +44,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NbStepperModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
+    NbDialogModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
