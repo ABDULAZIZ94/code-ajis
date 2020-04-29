@@ -1,20 +1,13 @@
-<!-- <nb-card *ngFor="let n of times">
-    <nb-card-header>
-        Tutorial title
-    </nb-card-header>
-    <nb-card-body>
-       <h2>This Tutorial</h2>
-       <p>What is Lorem Ipsum?
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </nb-card-body>
-    <nb-card-footer>
-        Written by someonw@gmail.com
-    </nb-card-footer>
-</nb-card> -->
 <nb-card>
   <h4>List Of Tutorials</h4>
 </nb-card>
+<!-- <nb-card *ngFor="let data of ws.datas">
+  <nb-card-body>
+    <p>{{data.payload.doc.id}}</p>
+    <h4>{{data.payload.doc.data().title}}</h4>
+    <h4>{{data.payload.doc.data().tag}}</h4>
+    <p [innerHtml]="data.payload.doc.data().tutorial | safehtml ">Fail</p><br>
+    <p>{{data.payload.doc.data().tutorial}}</p><br>
+    <button nbButton appearance="filled" status="primary" (click)="this.ws.deleteData(data)">delete</button>
+  </nb-card-body>
+</nb-card> -->

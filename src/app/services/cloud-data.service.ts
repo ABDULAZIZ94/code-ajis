@@ -1,30 +1,25 @@
 import { Injectable, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app'; import("firebase/auth");
 import { AngularFirestore } from '@angular/fire/firestore'
-
-//handle crud data from firestore
+import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CloudDataService implements OnInit{
-  
-
-  constructor(public af: AngularFirestore) { 
-
+  public datas;
+  constructor(public af: AngularFirestore) { }
+  ngOnInit() { }
+  pushToDB = async (data) => {
+    return new Promise<any>((resolve, reject) => {
+      this.af.collection('tutorials').add(data).then(res => { }, err => rejects(err));
+    });
   }
-
-
-  ngOnInit(){
-    //fetch data from firestore db
+  getDatas = () => {
+    return this.af.collection("tutorials").snapshotChanges();
   }
-
-  create = () => {};
-
-  read = () => { };
-
   update = () => { };
-
-  delete = () => { };
-
+  deleteData = async (data) => {
+    return this.af.collection("tutorials").doc(data.payload.doc.id).delete();
+  }
 }

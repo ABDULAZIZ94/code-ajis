@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SocialLoginModule } from './social-login/social-login.module';
@@ -16,18 +15,11 @@ import {
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
-
-//angularfire
 import { AngularFirestoreModule, SETTINGS as FIRESTORE_SETTINGS } from '@angular/fire/firestore';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { SocialLoginService } from './services/social-login.service';
-import { CloudDataService } from './services/cloud-data.service';
-import { HomeService } from './services/home.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DummyModule } from './dummy/dummy.module';
-import { CodesDirective } from './directives/codes.directive';
 
 @NgModule({
   declarations: [
@@ -38,12 +30,7 @@ import { CodesDirective } from './directives/codes.directive';
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
-    // SocialLoginModule,
-    // TutorialModule,
-    // DummyModule,
-
     FontAwesomeModule,
-  
     NbContextMenuModule,
     NbListModule,
     NbUserModule,
@@ -58,17 +45,13 @@ import { CodesDirective } from './directives/codes.directive';
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
-
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthGuardModule,
-
     AppRoutingModule,
   ],
   providers: [
-    SocialLoginService,
-    CloudDataService,
-    HomeService
+
   ],
   bootstrap: [AppComponent]
 })

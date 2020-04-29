@@ -47,6 +47,10 @@ add new tag
 
     git push origin v-x-x
 
+show tag
+
+    git tag
+
 add branch
 
     git branch <branch-name>

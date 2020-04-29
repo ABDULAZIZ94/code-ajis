@@ -1,51 +1,31 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SocialLoginService } from './social-login.service';
-//handle form data
-//call cloud data service
-@Injectable({
-  providedIn: 'root'
-})
-export class WriteService {
-  public datas;
-  public copy =[1,2,3];//testing
-  //bind to individual ngModel
-  public titM: String = ""; //title data model
-  public tagM: String = ""; //tag data model
-  public tutM: String = ""; //tut data Model
-  // instantiate individual form control
-  public titFC = new FormControl("", Validators.compose([
-    Validators.required,
-    Validators.pattern("^[A-Z]{1}.*")
-  ]));
-  public tagFC = new FormControl("", Validators.compose([
-    Validators.pattern("^[A-Z]{1}.*")
-  ]));
-  public tutFC = new FormControl("", Validators.compose([
-    Validators.required
-  ]));
-  constructor(public socialLogin: SocialLoginService) { 
-  }
-  getdatas =  () => this.socialLogin.getDatas().subscribe(
-    res => {
-      this.datas = res
-    }
-  );
-  public duplicate = async (x) => {
-    this.copy.push(x);
-  };
-  public save() {
-    let data = {
-      title: this.titM,
-      tag: this.tagM,
-      tutorial: this.tutM
-    };
+import { CloudDataService } from './cloud-data.service';
+import { Tutorial } from '../models/Tutorial';
+import { StepType, Step } from '../models/Step';
+import { TutorialModule } from '../tutorials/tutorial.module';
 
-    this.socialLogin.pushToDB(data).then(
-      res => {
-        console.log('write.save(): ' + res);
-      }
-    );
+@Injectable({providedIn:'root'})
+export class WriteService {
+  public data: Tutorial;
+  // public titM: String = ""; 
+  // public tagM: String = ""; 
+  // public tutM: String = ""; 
+  public titFC = new FormControl("", Validators.compose([Validators.required,Validators.pattern("^[A-Z]{1}.*")]));
+  public tagFC = new FormControl("", Validators.compose([Validators.pattern("^[A-Z]{1}.*")]));
+  public tutFC = new FormControl("", Validators.compose([Validators.required]));
+  constructor(public cd: CloudDataService) { this.data = new Tutorial() }
+  public save = () => {
+    this.cd.pushToDB({...this.data}).then(res => {});
   }
-  deleteData = async data => this.socialLogin.deleteData(data);
+  deleteData = async data => this.cd.deleteData(data);
+  public pushStep = (type: StepType) => {
+    let s = new Step();
+    switch (type) {
+      case StepType.featureTitle: s.setType(StepType.featureTitle); this.data.steps.push(s); break;
+      case StepType.featureDescription: s.setType(StepType.featureDescription); this.data.steps.push(s); break;
+      case StepType.featureCode: s.setType(StepType.featureCode); this.data.steps.push(s); break;
+      default: s.setType(StepType.undescribed); break;
+    }
+  }
 }

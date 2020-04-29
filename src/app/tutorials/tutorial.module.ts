@@ -19,6 +19,8 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { SafehtmlPipe } from '../pipes/safehtml.pipe';
+import { WriteService } from '../services/write.service';
+import { SocialLoginService } from '../services/social-login.service';
 //pipes
 
 @NgModule({

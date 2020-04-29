@@ -1,24 +1,24 @@
 <nb-card>
   <nb-card-header>
-    <h4>Fill This Form</h4>
+    <h4>Write A Tutorial</h4>
   </nb-card-header>
 	<nb-card-body >
 		<table>
 			<tr>
 				<td><label for="tutor_title">Title * : </label></td>
 				<td><input type="text" id="tutor_title" fieldSize="small" nbInput status="primary" 
-				placeholder="eg: How To Code" [(ngModel)]="this.data.title" [formControl]="this.titleFC"></td>
+				placeholder="eg: How To Code" [(ngModel)]="this.ws.data.title" [formControl]="this.ws.titFC"></td>
 			</tr>
 			<tr>
-				<td></td><td><span class="warn_note" *ngIf="!titleFC.valid && titleFC.dirty">* Start With Capital latter</span></td>
+				<td></td><td><span class="warn_note" *ngIf="!this.ws.titFC.valid && this.ws.titFC.dirty">* Start With Capital latter</span></td>
 			</tr>
 			<tr>
 				<td><label for="tutor_tag">Tag: </label></td>
 				<td><input type="text" id="tutor_tag" fieldSize="large" nbInput status="primary" placeholder="eg: CSS HTML JS" 
-				[(ngModel)]="this.data.tag" [formControl]="this.tagFC"></td>
+				[(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC"></td>
 			</tr>
 			<tr>
-				<td></td><td><span class="warn_note" *ngIf="!tagFC.valid && titleFC.dirty">* Start With capital Letter</span></td>
+				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* Start With capital Letter</span></td>
 			</tr>
 			<!-- <div *ngFor="let type of this.data.steps">
 				<h4 *ngIf="type == StepType.featureTitle">Chapter #1</h4>
@@ -32,26 +32,10 @@
 				<td><button nbButton (click)="pushStep(StepType.featureCode)">new code</button></td>
 				<td></td>
 			</tr> -->
-		<div>
-			<p *ngFor="let c of this.ws.copy" contenteditable (input)="onNameChange($event.target.innerHTML)">code here</p>
-			<h2 *ngFor="let c of this.copy">im copy</h2>
-			<button nbButton (click)="addCopy()" status="warning">Add</button>
-		</div>
-		<!-- <button nbButton *ngIf="false" (click)="submitTutor()">log</button><br> -->
-		<button nbButton *ngIf="true" status="info" (click)="this.ws.save()">save</button>
+		<button nbButton *ngIf="true" status="info" (click)="ws.save()">save</button>
 	</table>
 	</nb-card-body>
 	<nb-card-footer>
 		<span class="center">* requires</span>
 	</nb-card-footer>
-</nb-card>
-<nb-card *ngFor="let data of ws.datas">
-  <nb-card-body>
-    <p>{{data.payload.doc.id}}</p>
-    <h4>{{data.payload.doc.data().title}}</h4>
-    <h4>{{data.payload.doc.data().tag}}</h4>
-    <p [innerHtml]="data.payload.doc.data().tutorial | safehtml ">Fail</p><br>
-    <p >{{data.payload.doc.data().tutorial}}</p><br>
-    <button nbButton appearance="filled" status="primary" (click)="this.ws.deleteData(data)">delete</button>
-  </nb-card-body>
 </nb-card>
