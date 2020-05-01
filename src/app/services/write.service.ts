@@ -4,7 +4,6 @@ import { CloudDataService } from './cloud-data.service';
 import { Tutorial } from '../models/Tutorial';
 import { SocialLoginService } from './social-login.service';
 
-
 @Injectable({providedIn:'root'})
 export class WriteService {
   public data = new Tutorial();

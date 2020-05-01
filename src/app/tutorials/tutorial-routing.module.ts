@@ -18,7 +18,9 @@ const routes: Routes = [
     path: 'home', component: HomeComponent,
   },
   {
-    path: 'tutorial', component: TutorialComponent
+    path: 'tutorial', component: TutorialComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin } 
   },
   { 
     path: 'write', component: WriteComponent,
