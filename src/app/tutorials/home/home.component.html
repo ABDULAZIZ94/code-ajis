@@ -1,12 +1,13 @@
 <nb-card>
-    <nb-card-body *ngFor="let tag of hs.tagsData" class="center">
+    <nb-card-body  class="center">
+        <th *ngFor="let tag of hs.tagsData">
         <button *ngIf=" tag.tag=='html' " nbButton >
             <nb-badge text="10+" status="warning" position="top">
             </nb-badge>
             <fa-icon [icon]='faHtml5' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="info" position="top">
+        <button *ngIf=" tag.tag=='code' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}" status="info" position="top">
             </nb-badge>
             <fa-icon [icon]='faCode' size="4x"></fa-icon>
         </button>
@@ -15,30 +16,31 @@
             </nb-badge>
             <fa-icon [icon]='faAngular' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="danger" position="top">
+        <button *ngIf=" tag.tag=='vuejs' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}" status="danger" position="top">
             </nb-badge>
             <fa-icon [icon]='faVuejs' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="danger" position="top">
+        <button *ngIf=" tag.tag=='python' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}" status="danger" position="top">
             </nb-badge>
             <fa-icon [icon]='faPython' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="danger" position="top">
+        <button *ngIf=" tag.tag=='php' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}" status="danger" position="top">
             </nb-badge>
             <fa-icon [icon]='faPhp' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="warning" position="top">
+        <button *ngIf=" tag.tag=='laravel' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}+" status="warning" position="top">
             </nb-badge>
             <fa-icon [icon]='faLaravel' size="4x"></fa-icon>
         </button>
-        <button *ngIf=" tag.tag=='html' " nbButton>
-            <nb-badge text="20+" status="primary" position="top">
+        <button *ngIf=" tag.tag=='wordpress' " nbButton>
+            <nb-badge text="{{ tag.cumulative }}+" status="primary" position="top">
             </nb-badge>
             <fa-icon [icon]='faWordpress' size="4x"></fa-icon>
         </button>
+    </th>
     </nb-card-body>
 </nb-card>

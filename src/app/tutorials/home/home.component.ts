@@ -2,14 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { faPython, faPhp, faHtml5, faWordpress,faAngular, faVuejs,faLaravel } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { NbMenuItem } from '@nebular/theme';
 
 class Tag{
   text:String;
   icon:any;
 }
-
-//home tutorial show preview of this website
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
