@@ -12,7 +12,12 @@ export class CloudDataService {
     });
   }
   getDatas = () => { return this.af.collection("tutorials").snapshotChanges(); }
-  update = () => { };
+  updateData(data) {
+    return this.af
+               .collection("tutorials")
+               .doc(data.payload.doc.id)
+               .update(data.payload.doc.data());
+   }
   deleteData = async (data) => { return this.af.collection("tutorials").doc(data.payload.doc.id).delete(); }
   getTagsData = () => { return this.af.collection("tutorial_tags").valueChanges(); }
 }
