@@ -13,7 +13,6 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { ComfirmComponent } from '../dialogs/comfirm/comfirm.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 //fontawosome module
@@ -29,7 +28,6 @@ import { SocialLoginService } from '../services/social-login.service';
     SafehtmlPipe,
     WriteComponent, 
     HomeComponent,
-    ComfirmComponent,
     TutorialComponent,
   ],
   imports: [

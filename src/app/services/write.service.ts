@@ -13,6 +13,7 @@ export class WriteService {
   constructor(public cd: CloudDataService) { }
   public save = () => {this.cd.pushToDB({...this.data}).then(res => {alert(res)});}
   public pushStep = (type: StepType) => {
+    console.log(this.data.steps);
     let s = new Step();
     switch (type) {
       case StepType.featureTitle: s.setType(StepType.featureTitle); this.data.steps.push(s); break;
