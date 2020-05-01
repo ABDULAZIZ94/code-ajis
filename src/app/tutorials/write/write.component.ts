@@ -6,7 +6,6 @@ import { StepType, Step } from 'src/app/models/Step';
 import { SocialLoginService } from 'src/app/services/social-login.service';
 import { NbDialogService } from '@nebular/theme';
 import { HomeComponent } from '../home/home.component';
-import { ComfirmComponent } from 'src/app/dialogs/comfirm/comfirm.component';
 
 @Component({
   selector: 'app-write',
@@ -15,6 +14,7 @@ import { ComfirmComponent } from 'src/app/dialogs/comfirm/comfirm.component';
 })
 export class WriteComponent implements OnInit {
   @ViewChild('pRef', { static: false }) pRef: ElementRef;
+  public StepType;
   // public StepType; //for passing to template
   // public datas;//datas from firestore 
   // public data: Tutorial = new Tutorial();//new data instant using Tutorial data model
@@ -34,7 +34,7 @@ export class WriteComponent implements OnInit {
   // public tutorialFC = new FormControl("", Validators.compose([
   //   Validators.required
   // ]));
-  constructor(public ws: WriteService, private dialogService: NbDialogService ) { }
+  constructor(public ws: WriteService ) { this.StepType = StepType }
   ngOnInit(): void { 
     // this.dataPushed() 
   }
@@ -43,12 +43,6 @@ export class WriteComponent implements OnInit {
     //   res => { this.datas = res, console.log(res) }
     // );
   }
-
-  dataPushed(){
-    this.dialogService.open(ComfirmComponent);
-  }
-
-
   public onCodeChange =  (change) => {
     // let currentStep = new Step(StepType.featureCode);
     // currentStep.stepContent = change;

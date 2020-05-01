@@ -20,17 +20,17 @@
 			<tr>
 				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* Start With capital Letter</span></td>
 			</tr>
-			<div *ngFor="let type of this.data.steps">
+			<div *ngFor="let type of ws.data.steps">
 				<h4 *ngIf="type == StepType.featureTitle">Chapter #1</h4>
 				<p *ngIf="type == StepType.featureTitle">Description</p>
 
 			</div>
-			<tr>
-				<td></td>
-				<td><button nbButton (click)="pushStep(StepType.featureTitle)">new title</button></td>
-				<td><button nbButton (click)="pushStep(StepType.featureDescription)">new description</button></td>
-				<td><button nbButton (click)="pushStep(StepType.featureCode)">new code</button></td>
-				<td></td>
+			<tr class="center">
+
+				<button nbButton (click)="ws.pushStep(StepType.featureTitle)">new title</button>
+				<button nbButton (click)="ws.pushStep(StepType.featureDescription)">new description</button>
+				<button nbButton (click)="ws.pushStep(StepType.featureCode)">new code</button>
+		
 			</tr>
 		<button nbButton *ngIf="true" status="info" (click)="ws.save()">save</button>
 	</table>
@@ -38,8 +38,4 @@
 	<nb-card-footer>
 		<span class="center">* requires</span>
 	</nb-card-footer>
-</nb-card>
-<nb-card #modalTemplate >
-  <button nbButton status="info" (click)="val(1)">Yes</button>
-  <button nbButton status="warning" (click)="val(2)">No</button>
 </nb-card>

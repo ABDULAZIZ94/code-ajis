@@ -10,10 +10,8 @@ export class WriteService {
   public data = new Tutorial();
   public titFC = new FormControl("", Validators.compose([Validators.required,Validators.pattern("^[A-Z]{1}.*")]));
   public tagFC = new FormControl("", Validators.compose([Validators.pattern("^[A-Z]{1}.*")]));
-  public tutFC = new FormControl("", Validators.compose([Validators.required]));
   constructor(public cd: CloudDataService) { }
   public save = () => {this.cd.pushToDB({...this.data}).then(res => {alert(res)});}
-  // deleteData = async data => this.cd.deleteData(data);
   public pushStep = (type: StepType) => {
     let s = new Step();
     switch (type) {
