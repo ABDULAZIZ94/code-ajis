@@ -20,10 +20,10 @@
 			<tr>
 				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* Start With capital Letter</span></td>
 			</tr>
-			<div *ngFor="let type of ws.data.steps">
+			<div *ngFor="let type of ws.data.steps.stepType">
 				<h4 *ngIf="type == StepType.featureTitle">Chapter #1</h4>
-				<p *ngIf="type == StepType.featureTitle">Description</p>
-
+				<p *ngIf="type == StepType.Description">Description</p>
+				<p *ngIf="type == == StepType.Code" contenteditable (input)="onNameChange($event.target.innerHTML)">code here</p>
 			</div>
 			<tr class="center">
 
