@@ -1,10 +1,8 @@
-import { Step } from './Step';
-
 export class Tutorial{
     //core information
     public tag: String = "";
     public title: String = "";
-    public steps: Step[] = []; //can be code, chapter, description
+    public steps: String="";//Step[] = []; //can be code, chapter, description
     public author: String = "";
     //date time
     public date_modified: String = "";//last time modified

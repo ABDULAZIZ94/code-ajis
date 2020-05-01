@@ -3,38 +3,27 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app'; import("firebase/auth");
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore'
-import { rejects } from 'assert';
 
 @Injectable({ providedIn: 'root' })
 export class SocialLoginService {
   public firebase: any;
+  public user;
   constructor(public auth: AngularFireAuth, public router: Router,public af: AngularFirestore) { 
        this.firebase = firebase;
+       this.retrieveUser();
   }
-  googleLogin = async () => {
+  public googleLogin = async () => {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((success) => this.router.navigate(['write']));
   }
-  githubLogin = async () => {
+  public githubLogin = async () => {
     this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider()).then((success) => this.router.navigate(['write']));
   }
-  logout = async () => {
+  public logout = async () => {
     this.auth.signOut().then((success) => this.router.navigate(['social-login']));
   }
-  // pushToDB = async (data) => {
-  //   return new Promise<any>((resolve, reject) => {
-  //     this.af.collection('tutorials')
-  //       .add(data)
-  //       .then(res => { }, err => rejects(err));
-  //   });
-  // }
-  // getDatas =  () => {
-  //   return this.af.collection("tutorials").snapshotChanges();
-  // }
-  // deleteData = async (data) => {
-  //   return this.af
-  //     .collection("tutorials")
-  //     .doc(data.payload.doc.id)
-  //     .delete();
-  // }
-  updateTutorial = async () => {}//coming soon
+  retrieveUser = () => {
+    this.auth.user.subscribe( user => {
+      this.user = user.displayName;
+    });
+  }
 }

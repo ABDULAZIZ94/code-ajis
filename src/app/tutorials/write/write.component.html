@@ -20,17 +20,10 @@
 			<tr>
 				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* Start With capital Letter</span></td>
 			</tr>
-			<div *ngFor="let type of ws.data.steps">
-				<h4 >Chapter #1</h4>
-				<h4 >Description</h4>
-				<h4 contenteditable (input)="onCodeChange($event.target.innerHTML)">code here</h4>
-			</div>
-			<tr class="center">
-				<button nbButton (click)="ws.pushStep(StepType.featureTitle)">new title</button>
-				<button nbButton (click)="ws.pushStep(StepType.featureDescription)">new description</button>
-				<button nbButton (click)="ws.pushStep(StepType.featureCode)">new code</button>
-			</tr>
-		<button nbButton *ngIf="true" status="info" (click)="ws.save()">save</button>
+			<tr><td colspan="2">
+        <div contenteditable placeholder="code here" class="textarea" (input)="ws.onCodeChange($event.target.innerHTML)">
+      </div></td></tr>
+		<button nbButton status="info" (click)="ws.save()">save</button>
 	</table>
 	</nb-card-body>
 	<nb-card-footer>
