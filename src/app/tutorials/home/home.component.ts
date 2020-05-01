@@ -4,6 +4,10 @@ import { faPython, faPhp, faHtml5, faWordpress,faAngular, faVuejs,faLaravel } fr
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { NbMenuItem } from '@nebular/theme';
 
+class Tag{
+  text:String;
+  icon:any;
+}
 
 //home tutorial show preview of this website
 @Component({
@@ -12,41 +16,9 @@ import { NbMenuItem } from '@nebular/theme';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  faPython;
-  faPhp;
-  faWordpress;
-  faAngular;
-  faVuejs;
-  faLaravel;
-  faHtml5;
-  faCode;
-
-  items: NbMenuItem[] = [
-    {
-      title: 'Profile',
-      expanded: true,
-      children: [
-        {
-          title: 'Change Password',
-        },
-        {
-          title: 'Privacy Policy',
-        },
-        {
-          title: 'Logout',
-        },
-      ],
-    },
-    {
-      title: 'Shopping Bag',
-    },
-    {
-      title: 'Orders',
-    },
-  ];
-
-  constructor(public hds: HomeService) { 
+  faPython; faPhp; faWordpress; faAngular; faVuejs; faLaravel; faHtml5; faCode;
+  tags = [];
+  constructor(public hs: HomeService) { 
     this.faPython = faPython;
     this.faPhp = faPhp;
     this.faWordpress = faWordpress;
@@ -55,11 +27,6 @@ export class HomeComponent implements OnInit {
     this.faLaravel = faLaravel;
     this.faHtml5 = faHtml5;
     this.faCode = faCode;
-    
   }
-
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void { this.hs.getBannerData(); }
 }
