@@ -15,7 +15,7 @@ export class CloudDataService {
   deleteData = async (data) => { return this.af.collection("tutorials").doc(data.payload.doc.id).delete(); }
   getTagsData = () => { return this.af.collection("tutorial_tags").valueChanges(); }
   //experimental
-  updateData(data) {
+  updateData = async (data) => {
     return this.af.collection("tutorials").doc(data.payload.doc.id).set(data.payload.doc.data());
    }
   pushIncrementTag = async (tag) =>{
