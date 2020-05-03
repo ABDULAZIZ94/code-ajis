@@ -44,6 +44,7 @@
     </th>
     </nb-card-body>
 </nb-card>
-<nb-card>
-    {{ hs.tagsData | json }}
+<nb-card *ngFor="let d of hs.tagsData2">
+    {{ d.payload.doc.id }}
+    {{  d.payload.doc.data() | json }}
 </nb-card>
