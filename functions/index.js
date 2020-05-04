@@ -6,7 +6,7 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-exports.updateTag = functions.firestore
+exports.incrementTag = functions.firestore
     .document('tutorials/{docId}') //cannot have -
     .onCreate( (snap, context) => {
         const newValue = snap.data();
