@@ -21,6 +21,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { SafehtmlPipe } from '../pipes/safehtml.pipe';
 import { WriteService } from '../services/write.service';
 import { SocialLoginService } from '../services/social-login.service';
+import { ReadTutorialComponent } from './read-tutorial/read-tutorial.component';
 //pipes
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SocialLoginService } from '../services/social-login.service';
     WriteComponent, 
     HomeComponent,
     TutorialComponent,
+    ReadTutorialComponent,
   ],
   imports: [
     FontAwesomeModule,

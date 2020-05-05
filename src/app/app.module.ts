@@ -25,7 +25,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    
   ],
   imports: [
     BrowserModule,

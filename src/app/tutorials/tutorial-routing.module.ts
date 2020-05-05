@@ -7,6 +7,7 @@ import {
   AngularFireAuthGuard, hasCustomClaim,
   redirectLoggedInTo, redirectUnauthorizedTo
 } from '@angular/fire/auth-guard'; //dont use auto import
+import { ReadTutorialComponent } from './read-tutorial/read-tutorial.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['social-login']);
 
@@ -20,7 +21,10 @@ const routes: Routes = [
   {
     path: 'tutorial', component: TutorialComponent,
     canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin } 
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    children:[{
+      path:'read/:id', component: ReadTutorialComponent
+    }]
   },
   { 
     path: 'write', component: WriteComponent,

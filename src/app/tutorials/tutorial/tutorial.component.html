@@ -1,9 +1,9 @@
 <nb-card>
   <h4>List Of Tutorials</h4>
 </nb-card>
-<nb-card *ngFor="let data of ts.datas">
+<!-- <nb-card *ngFor="let data of ts.datas">
   <nb-card-body>
-    <!-- <p>{{data.payload.doc.id}}</p> -->
+    <p>{{data.payload.doc.id}}</p>
     <h4>{{data.payload.doc.data().title}}</h4><hr>
     <h6>{{data.payload.doc.data().tag}}</h6>
     <p [innerHtml]="data.payload.doc.data().steps | safehtml ">Fail</p><br>
@@ -16,6 +16,17 @@
     {{ ts.dataToUpdate.payload.doc.data().title }}
     <input [(ngModel)]=" ts.dataToUpdate.payload.doc.data().title "  [formControl]="ts.titFC" type="text" nbInput status="warning">
     <button nbButton appearance="filled" status="primary" (click)="this.ts.updateData()">update</button>    
+  </nb-card-body>
+</nb-card> -->
+
+<nb-card *ngFor="let data of ts.datas">
+  <nb-card-header>
+    <a routerLink=" ['read','3e9ideff9' ">Read</a>
+  </nb-card-header>
+  <nb-card-body>
+    <p>{{data.payload.doc.id}}</p>
+    <h4>{{data.payload.doc.data().title}}</h4><hr>
+    <h6>{{data.payload.doc.data().tag}}</h6>
   </nb-card-body>
 </nb-card>
 
