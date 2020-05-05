@@ -25,5 +25,5 @@ export class HomeComponent implements OnInit {
     this.faHtml5 = faHtml5;
     this.faCode = faCode;
   }
-  ngOnInit(): void { this.hs.getBannerData(); this.hs.getBannerData2(); this.hs.getHomeStatus() }
+  ngOnInit(): void { this.hs.getBannerData(); this.hs.getHomeStatus() }
 }

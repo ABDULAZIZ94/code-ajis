@@ -14,7 +14,6 @@ export class CloudDataService {
   getDatas = () => { return this.af.collection("tutorials").snapshotChanges(); }
   deleteData = async (data) => { return this.af.collection("tutorials").doc(data.payload.doc.id).delete(); }
   getTagsData = () => { return this.af.collection("tutorial_tags").valueChanges(); }
-  getTagsDataAngular = () => { return this.af.collection("tutorial_tags", ref => ref.where('tag','==','angular')).snapshotChanges(); }
   getHomeStatusData = () => { return this.af.collection('logs', ref => ref.orderBy('timestamp','desc').limit(3)).snapshotChanges(); }
   //experimental
   updateData = async (data) => {
