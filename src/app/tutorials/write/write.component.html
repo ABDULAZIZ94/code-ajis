@@ -38,8 +38,8 @@
 </nb-card>
 <nb-card>
 	<nb-card-body>
-		<nb-select [(selected)]="ws.selectedTag">
-			<nb-option *ngFor="let t of ws.tags" [value]="t">
+		<nb-select placeholder="Select tag" [(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC">
+			<nb-option *ngFor="let t of ws.tags" [value]="t.tag">
 			  {{ t.tag }}
 			</nb-option>
 		  </nb-select>

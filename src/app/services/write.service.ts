@@ -10,7 +10,7 @@ export class WriteService {
   public tags;
   public selectedTag;
   public titFC = new FormControl("", Validators.compose([Validators.required,Validators.pattern("^[A-Z]{1}.*")]));
-  public tagFC = new FormControl("", Validators.compose([Validators.pattern("^[A-Z]{1}.*")]));
+  public tagFC = new FormControl("", Validators.compose([Validators.required]));
   constructor(public cd: CloudDataService,public  sl: SocialLoginService) { }
   public retrieveTags = () => { this.cd.getTags().subscribe( ref => this.tags = ref) }
   public save = () => {
