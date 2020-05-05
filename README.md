@@ -78,3 +78,5 @@ show branch
     public dir = dist/aziz-code
 
 ## project too large to continue documenting
+
+# nebular select (html code) must written inside <nb-layout-column> and <nb-layout> tag
