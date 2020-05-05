@@ -8,7 +8,9 @@ import { CloudDataService } from './cloud-data.service';
 export class HomeService {
   public tagsData;
   public tagsData2;
+  public homeStat;
   constructor(public cd: CloudDataService) { }
-  getBannerData = () =>{ this.cd.getTagsData().subscribe(res =>{this.tagsData = res})};
+  getBannerData = () =>{ this.cd.getTagsData().subscribe(res => { this.tagsData = res })};
   getBannerData2 = () => { this.cd.getTagsDataAngular().subscribe( res => this.tagsData2 = res )}
+  getHomeStatus = () => { this.cd.getHomeStatusData().subscribe( res => this.homeStat = res)};
 }
