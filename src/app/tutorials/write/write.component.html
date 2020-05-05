@@ -1,3 +1,6 @@
+<nb-layout>
+<nb-layout-column>
+	
 <nb-card>
   <nb-card-header>
     <h4>Write A Tutorial</h4>
@@ -30,3 +33,18 @@
 		<span class="center">* requires</span>
 	</nb-card-footer>
 </nb-card>
+<nb-card >
+	{{ws.tags | json}}
+</nb-card>
+<nb-card>
+	<nb-card-body>
+		<nb-select [(selected)]="ws.selectedTag">
+			<nb-option *ngFor="let t of ws.tags" [value]="t">
+			  {{ t.tag }}
+			</nb-option>
+		  </nb-select>
+	</nb-card-body>
+</nb-card>
+
+</nb-layout-column>
+</nb-layout>

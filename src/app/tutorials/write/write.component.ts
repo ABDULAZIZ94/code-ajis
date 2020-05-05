@@ -8,5 +8,5 @@ import { WriteService } from 'src/app/services/write.service';
 })
 export class WriteComponent implements OnInit {
   constructor(public ws: WriteService ) { }
-  ngOnInit(): void { }
+  ngOnInit(): void { this.ws.retrieveTags(); }
 }

@@ -52,7 +52,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
   ],
   providers: [
-
+    NbThemeModule.forRoot(
+      {
+          name: 'default',
+      },
+      [],
+  ).providers
   ],
   bootstrap: [AppComponent]
 })

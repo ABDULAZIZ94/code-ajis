@@ -8,7 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule,
   NbSidebarModule, NbCardModule, NbStepperModule, NbListModule,
-  NbActionsModule, NbMenuModule, NbUserModule, NbBadgeModule, NbDialogModule
+  NbActionsModule, NbMenuModule, NbUserModule, NbBadgeModule, NbDialogModule, NbSelectModule, NbOptionModule, NbOptionListComponent
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbIconModule } from '@nebular/theme';
@@ -31,11 +31,14 @@ import { SocialLoginService } from '../services/social-login.service';
     TutorialComponent,
   ],
   imports: [
+    NbLayoutModule,
     FontAwesomeModule,
     CommonModule,
+    NbSelectModule,
+    NbOptionModule,
     NbListModule,
     NbUserModule,
-    NbLayoutModule,
+    NbActionsModule,
     NbEvaIconsModule,
     NbButtonModule,
     NbActionsModule,
