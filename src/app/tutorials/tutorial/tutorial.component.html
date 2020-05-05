@@ -7,20 +7,11 @@
     <h4>{{data.payload.doc.data().title}}</h4><hr>
     <h6>{{data.payload.doc.data().tag}}</h6>
     <p [innerHtml]="data.payload.doc.data().steps | safehtml ">Fail</p><br>
-    <button nbButton appearance="filled" status="primary" (click)="this.ts.deleteData(data)">delete</button>
-    <button nbButton appearance="filled" status="primary" (click)="this.ts.updatingData(data)">updating</button>    
-  </nb-card-body>
-  <nb-card-body *ngIf="ts.updating && ( data == ts.dataToUpdate) ">
-    <div> {{ data.payload.doc.data() | json }} </div><br><hr>
-    <div> {{ ts.dataToUpdate.payload.doc.data()  | json }} </div><br><hr>
-    {{ ts.dataToUpdate.payload.doc.data().title }}
-    <input [(ngModel)]=" ts.dataToUpdate.payload.doc.data().title "  [formControl]="ts.titFC" type="text" nbInput status="warning">
-    <button nbButton appearance="filled" status="primary" (click)="this.ts.updateData()">update</button>    
+    <button nbButton appearance="filled" status="primary" (click)="this.ts.deleteData(data)">delete</button> 
   </nb-card-body>
 </nb-card> -->
-
 <nb-card *ngFor="let data of ts.datas">
-  <nb-card-header><a [routerLink]="['/tutorial','3e9ideff9']">Read</a></nb-card-header>
+  <nb-card-header><a [routerLink]="['/tutorial',data.payload.doc.id]">Read</a></nb-card-header>
   <nb-card-body>
     <p>{{data.payload.doc.id}}</p>
     <h4>{{data.payload.doc.data().title}}</h4><hr>

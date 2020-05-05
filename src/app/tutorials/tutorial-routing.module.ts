@@ -27,9 +27,6 @@ const routes: Routes = [
       { path: '', component: TutorialComponent }
     ]
   },
-  // {
-  //   path:'read/:id', component: ReadTutorialComponent
-  // },
   { 
     path: 'write', component: WriteComponent,
     canActivate: [AngularFireAuthGuard],
