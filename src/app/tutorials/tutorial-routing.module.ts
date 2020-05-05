@@ -19,13 +19,17 @@ const routes: Routes = [
     path: 'home', component: HomeComponent,
   },
   {
-    path: 'tutorial', component: TutorialComponent,
+    path: 'tutorial',
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-    children:[{
-      path:'read/:id', component: ReadTutorialComponent
-    }]
+    children:[
+      { path:':id', component: ReadTutorialComponent }, //cannot have /path/:id
+      { path: '', component: TutorialComponent }
+    ]
   },
+  // {
+  //   path:'read/:id', component: ReadTutorialComponent
+  // },
   { 
     path: 'write', component: WriteComponent,
     canActivate: [AngularFireAuthGuard],

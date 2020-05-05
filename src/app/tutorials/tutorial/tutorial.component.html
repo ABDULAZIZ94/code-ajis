@@ -20,9 +20,7 @@
 </nb-card> -->
 
 <nb-card *ngFor="let data of ts.datas">
-  <nb-card-header>
-    <a routerLink=" ['read','3e9ideff9' ">Read</a>
-  </nb-card-header>
+  <nb-card-header><a [routerLink]="['/tutorial','3e9ideff9']">Read</a></nb-card-header>
   <nb-card-body>
     <p>{{data.payload.doc.id}}</p>
     <h4>{{data.payload.doc.data().title}}</h4><hr>
