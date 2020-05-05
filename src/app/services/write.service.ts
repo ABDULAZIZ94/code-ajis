@@ -8,7 +8,6 @@ import { SocialLoginService } from './social-login.service';
 export class WriteService {
   public data = new Tutorial();
   public tags;
-  public selectedTag;
   public titFC = new FormControl("", Validators.compose([Validators.required,Validators.pattern("^[A-Z]{1}.*")]));
   public tagFC = new FormControl("", Validators.compose([Validators.required]));
   constructor(public cd: CloudDataService,public  sl: SocialLoginService) { }
@@ -21,7 +20,5 @@ export class WriteService {
     } )
   }
   public onCodeChange =  (change) => { this.data.steps = change; }
-  saveTutorialMetaData = () => { 
-    this.data.author = this.sl.user;
-  }
+  saveTutorialMetaData = () => { this.data.author = this.sl.user;}
 }

@@ -17,11 +17,11 @@
 			</tr>
 			<tr>
 				<td><label for="tutor_tag">Tag: </label></td>
-				<td><input type="text" id="tutor_tag" fieldSize="large" nbInput status="primary" placeholder="eg: CSS HTML JS" 
-				[(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC"></td>
+				<td><nb-select placeholder="Select tag" [(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC">
+				<nb-option *ngFor="let t of ws.tags" [value]="t.tag">{{ t.tag }}</nb-option></nb-select></td>
 			</tr>
 			<tr>
-				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* Start With capital Letter</span></td>
+				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* required</span></td>
 			</tr>
 			<tr><td colspan="2">
         <div contenteditable placeholder="code here" class="textarea" (input)="ws.onCodeChange($event.target.innerHTML)">
@@ -30,21 +30,8 @@
 	</table>
 	</nb-card-body>
 	<nb-card-footer>
-		<span class="center">* requires</span>
+		<span class="center">Good Tutorial Help People</span>
 	</nb-card-footer>
 </nb-card>
-<nb-card >
-	{{ws.tags | json}}
-</nb-card>
-<nb-card>
-	<nb-card-body>
-		<nb-select placeholder="Select tag" [(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC">
-			<nb-option *ngFor="let t of ws.tags" [value]="t.tag">
-			  {{ t.tag }}
-			</nb-option>
-		  </nb-select>
-	</nb-card-body>
-</nb-card>
-
 </nb-layout-column>
 </nb-layout>
