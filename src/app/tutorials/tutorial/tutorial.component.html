@@ -20,4 +20,13 @@
     <h6>{{data.payload.doc.data().tag}}</h6>
   </nb-card-body>
 </nb-card>
+<nb-card>
+  <nb-card-body>
+    <div *ngFor="let h of ts.hash">
+      <div *ngFor="let t of h.indexes">
+        {{t.tag}}
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
 
