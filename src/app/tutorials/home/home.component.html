@@ -45,5 +45,5 @@
     </nb-card-body>
 </nb-card>
 <nb-card *ngFor="let d of hs.homeStat">
-    <button nbButton ><nb-icon icon="bell-outline"></nb-icon>{{  d.payload.doc.data().title | json }}</button>
+    <nb-card-body><nb-icon icon="bell-outline"></nb-icon>{{  d.payload.doc.data().log }}</nb-card-body>
 </nb-card>
