@@ -22,11 +22,7 @@
 </nb-card>
 <nb-card>
   <nb-card-body>
-    <div *ngFor="let h of ts.hash">
-      <div *ngFor="let t of h.indexes">
-        {{t.tag}}
-      </div>
-    </div>
+    {{ts.hash | json}}
   </nb-card-body>
 </nb-card>
 

@@ -18,7 +18,7 @@ export class CloudDataService {
   getHomeStatusData = () => 
   { return this.af.collection('logs', ref => ref.orderBy('timestamp','desc').limit(3)).snapshotChanges().pipe(take(1)); }
   getTags = () => { return this.af.collection('tutorial_tags').valueChanges().pipe(take(1)); };
-  getHash = () => { return this.af.collection('hashes').valueChanges() }
+  getHash = () => { return this.af.collection('hashes').doc('0').valueChanges() }
   //experimental
   updateData = async (data) => {
     return this.af.collection("tutorials").doc(data.payload.doc.id).set(data.payload.doc.data());
