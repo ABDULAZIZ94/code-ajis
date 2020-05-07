@@ -2,7 +2,10 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp({credential: admin.credential.applicationDefault()});
 const db = admin.firestore();
-const runtimeOpts = {timeoutSeconds: 120,memory: '128MB'}
+const runtimeOpts = {
+    timeoutSeconds: 120,//max540
+    memory: '128MB' //max2GB
+}
 exports.hash = functions.runWith(runtimeOpts).firestore
 .document('tutorials/{docId}') //cannot have -
 .onCreate( (snap, context) => {
@@ -10,14 +13,9 @@ exports.hash = functions.runWith(runtimeOpts).firestore
     const tag = newValue.tag;
     const title = newValue.title;
     const id = snap.id;
-    const timestamp= admin.firestore.Timestamp.now();
+    const timestamp= admin.firestore.Timestamp.now(); //Date.now() //admin.firestore.Timestamp.fromDate(new Date())
     let hash = '{"'+id+'": { "tag":"'+tag+'", "title":"'+title+'","timestamp":"'+timestamp+'"} }';
+    // console.log(hash);
     return db.collection('hashes').doc('0').set(JSON.parse(hash),{merge: true});
 });
-exports.nullHash = functions.runWith(runtimeOpts).firestore
-.document('tutorials/{docId}') //cannot have -
-.onDelete( (snap, context) => {
-    const id = snap.id;
-    let hash = '{"'+id+'": null }';
-    return db.collection('hashes').doc('0').set(JSON.parse(hash),{merge: true});
-});
+
