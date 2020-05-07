@@ -25,7 +25,6 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.mon_avatar();
     this.hs.getHomeHash();
-    this.hs.getHomeTag();
   } 
   mon_avatar = ()=> {
     this.nbMenuService.onItemClick().pipe(

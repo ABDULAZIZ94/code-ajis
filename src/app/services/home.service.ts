@@ -7,12 +7,21 @@ import { CloudDataService } from './cloud-data.service';
 })
 export class HomeService {
   hashes;
-  tags;
+  tags =[
+    { tag:'angular', value:0},
+    { tag:'code', value:0},
+    { tag:'css', value:0 }, 
+    { tag:'html5', value:0 }, 
+    { tag:'laravel', value:0 },
+    { tag:'php', value:0 },
+    { tag:'python', value:0},
+    { tag:'vuejs', value:0},
+    { tag:'wordpress', value:0},
+    ];
   homeStat;
   constructor(public cd: CloudDataService) { }
   getHomeHash = ()=>{this.cd.getHash().subscribe(res => this.hashes = res )}
-  getHomeTag = ()=>{
-    this.cd.getTags().subscribe(res => this.tags = res['tags']);
-    // this.tags = this.tags.tags;
-  }
+  // getHomeTag = ()=>{
+  //   this.cd.getTags().subscribe(res => this.tags = res['tags']);
+  // }
 }
