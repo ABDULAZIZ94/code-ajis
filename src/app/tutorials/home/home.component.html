@@ -1,8 +1,7 @@
 <nb-card>
     <nb-card-body  class="center">
-    
-     <th *ngFor="let tag of hs.tags"> -->
-         <h1>let tag of hs.tags</h1>
+    <span *ngIf="hs.tags">
+     <tr *ngFor="let tag of hs.tags">
       <!-- <button *ngIf=" tag.tag=='html' " nbButton >
             <nb-badge text="{{ tag.cumulative }}+" status="warning" position="top">
             </nb-badge>
@@ -42,13 +41,14 @@
             <nb-badge text="{{ tag.cumulative }}+" status="primary" position="top">
             </nb-badge>
             <fa-icon [icon]='faWordpress' size="4x"></fa-icon>
-        </button> --> -->
+        </button> --> 
         {{ tag | json}}
-    </th>
+    </tr>
+</span>
     </nb-card-body>
 </nb-card>
 <nb-card >
-    <h1>hs.tags.angular</h1>
-    {{ hs.tags.angular | json}}
+    <h1>hs.tags</h1>
+    {{ hs.tags | json}}
     <!-- <nb-card-body><nb-icon icon="bell-outline"></nb-icon>{{  d.payload.doc.data().log }}</nb-card-body> -->
 </nb-card>

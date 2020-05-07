@@ -12,6 +12,7 @@ export class HomeService {
   constructor(public cd: CloudDataService) { }
   getHomeHash = ()=>{this.cd.getHash().subscribe(res => this.hashes = res )}
   getHomeTag = ()=>{
-    this.cd.getTags().subscribe(res => this.tags = res);
+    this.cd.getTags().subscribe(res => this.tags = res['tags']);
+    // this.tags = this.tags.tags;
   }
 }
