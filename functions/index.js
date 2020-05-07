@@ -9,35 +9,14 @@ exports.incrementTag = functions.firestore
     const newValue = snap.data();
     const tag = newValue.tag;
     const title = newValue.title;
-    db.collection('tutorial_tags').where('tag','==',tag).get().then( (snapshot) => {
-        snapshot.forEach( (doc) => { 
-          let id = doc.id; 
-          let cumulative = doc.data().cumulative + 1 ;
-          let log_info = `${tag} tutorial ${title} created`;
-          let timestamp=admin.firestore.FieldValue.serverTimestamp();
-          if(id!=null){
-            db.collection('tutorial_tags').doc(id).update({'cumulative': cumulative});
-            db.collection('logs').add({'log':log_info, 'timestamp': timestamp});
-          }
-        } );
-    })
+    const id = snap.id;
+    let timestamp=admin.firestore.FieldValue.serverTimestamp();
+q
+    let hash ='{"'+id+'": {"tag":"'+tag+'","title":"'+title+'","timestamp":'+timestamp+'}}';
+
+    db.collection('hashes').doc(0).set(JSON.parse(hash),{merge: true});
 });
 exports.decrementTag = functions.firestore
 .document('tutorials/{docId}') //cannot have -
 .onDelete( (snap, context) => {
-    const deletedValue = snap.data();
-    const tag = deletedValue.tag;
-    const title = deletedValue.title;
-    db.collection('tutorial_tags').where('tag','==',tag).get().then( (snapshot) => {
-        snapshot.forEach( (doc) => { 
-          let id = doc.id; 
-          let cumulative = doc.data().cumulative - 1 ;
-          let timestamp=admin.firestore.FieldValue.serverTimestamp();
-          let log_info = `${tag} tutorial ${title} deleted`;
-          if(id!=null){
-            db.collection('tutorial_tags').doc(id).update({'cumulative': cumulative});
-            db.collection('logs').add({'log':log_info, 'timestamp': timestamp});
-          }
-        } );
-    })
 });

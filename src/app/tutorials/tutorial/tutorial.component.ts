@@ -8,5 +8,5 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class TutorialComponent implements OnInit {
   constructor(public ts: TutorialService ){}
-  ngOnInit(): void { this.ts.getdatas(); this.ts.gethash(); }
+  ngOnInit(): void { this.ts.gethash(); }
 }

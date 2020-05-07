@@ -3,6 +3,7 @@ import {  NbMenuService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { SocialLoginService } from './services/social-login.service';
 import { filter, map } from 'rxjs/operators'
+import { HomeService } from './services/home.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { filter, map } from 'rxjs/operators'
 export class AppComponent implements OnInit{
   title = 'code-ajis';
   contextMenu =[{title:"login"},{title:"logout"}];
-  constructor(public router: Router, public ls:SocialLoginService, private nbMenuService: NbMenuService){
+  constructor(public router: Router, public ls:SocialLoginService, private nbMenuService: NbMenuService,
+    public hs: HomeService){
   }
   login = ()=> {
     this.router.navigate(['social-login']);
@@ -22,6 +24,8 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(){
     this.mon_avatar();
+    this.hs.getHomeHash();
+    this.hs.getHomeTag();
   } 
   mon_avatar = ()=> {
     this.nbMenuService.onItemClick().pipe(

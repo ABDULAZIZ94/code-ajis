@@ -18,7 +18,7 @@
 			<tr>
 				<td><label for="tutor_tag">Tag: </label></td>
 				<td><nb-select placeholder="Select tag" [(ngModel)]="this.ws.data.tag" [formControl]="this.ws.tagFC">
-				<nb-option *ngFor="let t of ws.tags" [value]="t.tag">{{ t.tag }}</nb-option></nb-select></td>
+				<nb-option *ngFor="let t of hs.tags" [value]="t.tag">{{ t.tag }}</nb-option></nb-select></td>
 			</tr>
 			<tr>
 				<td></td><td><span class="warn_note" *ngIf="!this.ws.tagFC.valid && this.ws.titFC.dirty">* required</span></td>

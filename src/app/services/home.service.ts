@@ -6,10 +6,12 @@ import { CloudDataService } from './cloud-data.service';
   providedIn: 'root'
 })
 export class HomeService {
-  public tagsData;
-  public tagsData2;
-  public homeStat;
+  hashes;
+  tags;
+  homeStat;
   constructor(public cd: CloudDataService) { }
-  getBannerData = () =>{ this.cd.getTagsData().subscribe(res => { this.tagsData = res })};
-  getHomeStatus = () => { this.cd.getHomeStatusData().subscribe( res => this.homeStat = res)};
+  getHomeHash = ()=>{this.cd.getHash().subscribe(res => this.hashes = res )}
+  getHomeTag = ()=>{
+    this.cd.getTags().subscribe(res => this.tags = res);
+  }
 }
