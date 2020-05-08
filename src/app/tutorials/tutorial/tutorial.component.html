@@ -3,26 +3,11 @@
     <h4>Filter</h4>
   </nb-card-header>
 </nb-card>
-<!-- <nb-card *ngFor="let data of ts.datas">
+<nb-card *ngFor="let h of hs.catalog">
   <nb-card-body>
-    <p>{{data.payload.doc.id}}</p>
-    <h4>{{data.payload.doc.data().title}}</h4><hr>
-    <h6>{{data.payload.doc.data().tag}}</h6>
-    <p [innerHtml]="data.payload.doc.data().steps | safehtml ">Fail</p><br>
-    <button nbButton appearance="filled" status="primary" (click)="this.ts.deleteData(data)">delete</button> 
+  <h4>{{ h.title }}<nb-badge text="{{h.tag}}" status="info" position="top-left"></nb-badge></h4>
   </nb-card-body>
-</nb-card> -->
-<nb-card *ngFor="let data of ts.datas">
-  <nb-card-header><a [routerLink]="['/tutorial',data.payload.doc.id]">Read</a></nb-card-header>
-  <nb-card-body>
-    <p>{{data.payload.doc.id}}</p>
-    <h4>{{data.payload.doc.data().title}}</h4><hr>
-    <h6>{{data.payload.doc.data().tag}}</h6>
-  </nb-card-body>
+  <nb-card-footer><a [routerLink]="['/tutorial',h.id]">read</a></nb-card-footer>
 </nb-card>
-<nb-card>
-  <nb-card-body>
-    {{ts.hash | json}}
-  </nb-card-body>
-</nb-card>
+
 

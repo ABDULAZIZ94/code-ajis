@@ -1,1 +1,13 @@
-<h1>The is is {{id}}</h1>
+<nb-card *ngIf="rts.tutorial != null">
+    <nb-card-header>
+        <!-- <h1>{{this.id}}</h1> -->
+        <h1>{{rts.tutorial.title}}</h1>
+    </nb-card-header>
+    <nb-card-body>
+        <p [innerHtml]="rts.tutorial.steps | safehtml ">Loading ...</p><br>
+    </nb-card-body>
+    <nb-card-footer>
+        <p>wrote by {{rts.tutorial.author}}</p>
+    </nb-card-footer>
+</nb-card>
+

@@ -12,7 +12,7 @@ export class CloudDataService {
       this.af.collection('tutorials').add(data).then(res => { resolve(res)}, err => reject(err));
     });
   }
-  getDatas = () => { return this.af.collection("tutorials").snapshotChanges().pipe(take(1)); }
+  getTutorial = (t) => { return this.af.collection("tutorials").doc(t).valueChanges().pipe(take(1)); }
   deleteData = async (data) => { return this.af.collection("tutorials").doc(data.payload.doc.id).delete(); }
   getTags = () => { return this.af.collection("tags").doc('0').valueChanges().pipe(take(1)); }
   getHash = () => { return this.af.collection('hashes').doc('0').valueChanges().pipe(take(1)) }

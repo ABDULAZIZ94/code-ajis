@@ -9,7 +9,8 @@ export class WriteService {
   public data = new Tutorial();
   public titFC = new FormControl("", Validators.compose([Validators.required,Validators.pattern("^[A-Z]{1}.*")]));
   public tagFC = new FormControl("", Validators.compose([Validators.required]));
-  constructor(public cd: CloudDataService,public  sl: SocialLoginService) { }  public save = () => {
+  constructor(public cd: CloudDataService,public  sl: SocialLoginService) { }  
+  public save = () => {
     this.saveTutorialMetaData()
     this.cd.pushToDB({...this.data})
     .then(res => {
